@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Samuell Soares – Recuperação Capilar Sem Cirurgia</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500;1,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Iconify Solar -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <!-- Swiper (carousel) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        teal: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        slate: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        emerald: { 400: '#34d399', 500: '#10b981', 50: '#ecfdf5', 600: '#059669' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* ── Base Typography ── */
+        body { font-family: 'Inter', sans-serif; background-color: #fafcff; color: #0f172a; }
+        h1,h2,h3,h4,h5,h6,.font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-mono { font-family: 'Space Mono', monospace; }
+
+        /* ── Subtle Grid Background ── */
+        .bg-grid {
+            background-size: 100px 100px;
+            background-image:
+                linear-gradient(to right, rgba(15,23,42,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(15,23,42,0.03) 1px, transparent 1px);
+        }
+
+        /* ── Glassmorphism ── */
+        .glass-card {
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.65);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03), 0 24px 48px -12px rgba(0,0,0,0.08);
+        }
+
+        /* ── Reveal animations (GSAP fallback) ── */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* ── Beam Light ── */
+        .beam-h {
+            position: absolute; height: 1px; width: 200px;
+            background: linear-gradient(90deg, transparent, #0d9488, transparent);
+            z-index: 10; opacity: 0;
+            animation: beam-h 6s infinite;
+        }
+        .beam-v {
+            position: absolute; width: 1px; height: 200px;
+            background: linear-gradient(180deg, transparent, #0d9488, transparent);
+            z-index: 10; opacity: 0;
+            animation: beam-v 7s infinite;
+        }
+        @keyframes beam-h {
+            0%   { left: -200px; opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { opacity: 1; }
+            100% { left: 100%; opacity: 0; }
+        }
+        @keyframes beam-v {
+            0%   { top: -200px; opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        /* ── Float Animations ── */
+        @keyframes float {
+            0%,100% { transform: translateY(0px); }
+            50%     { transform: translateY(-8px); }
+        }
+        .animate-float          { animation: float 6s ease-in-out infinite; }
+        .animate-float-delayed  { animation: float 7s ease-in-out 2s infinite; }
+
+        /* ── Ambient Blobs ── */
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.4;
+            animation: blob-bounce 12s infinite alternate;
+        }
+        @keyframes blob-bounce {
+            0%   { transform: translate(0,0) scale(1); }
+            100% { transform: translate(30px,-40px) scale(1.05); }
+        }
+
+        /* ── Design System Markers ── */
+        .marker {
+            position: absolute;
+            width: 5px; height: 5px;
+            background-color: #0f172a;
+            z-index: 30;
+        }
+
+        /* ── Scrollbar hide ── */
+        .hidden-scrollbar::-webkit-scrollbar { display: none; }
+        .hidden-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* ── Section grid lines ── */
+        .grid-line-left  { position: absolute; top:0; bottom:0; left:6%; width:1px; background:rgba(15,23,42,0.04); pointer-events:none; }
+        .grid-line-mid   { position: absolute; top:0; bottom:0; left:53%; width:1px; background:rgba(15,23,42,0.04); pointer-events:none; }
+        .grid-line-right { position: absolute; top:0; bottom:0; right:6%; width:1px; background:rgba(15,23,42,0.04); pointer-events:none; }
+
+        /* ── Before/After slider ── */
+        .before-after-container { position: relative; overflow: hidden; user-select: none; }
+        .before-after-handle {
+            position: absolute; top:0; bottom:0; left:50%;
+            width: 3px; background: white;
+            cursor: ew-resize; z-index: 20;
+            transform: translateX(-50%);
+        }
+        .before-after-handle::before,
+        .before-after-handle::after {
+            content: '';
+            position: absolute; left: 50%; transform: translateX(-50%);
+            width: 40px; height: 40px;
+            background: white; border-radius: 50%;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+        }
+        .before-after-handle::before { top: calc(50% - 20px); }
+        .before-after-handle::after  { display: none; }
+        .before-after-handle-icon {
+            position: absolute; top:50%; left:50%;
+            transform: translate(-50%,-50%);
+            z-index: 21; color: #0d9488; pointer-events: none;
+        }
+        .before-layer {
+            position: absolute; top:0; left:0; bottom:0;
+            overflow: hidden; width: 50%;
+        }
+        .before-layer img { position: absolute; top:0; left:0; width: 100%; height: 100%; object-fit: cover; }
+
+        /* ── Swiper testimonials ── */
+        .swiper-slide { height: auto; }
+
+        /* ── Warning box ── */
+        .warning-box {
+            background: linear-gradient(135deg, #fff7ed 0%, #fffbeb 100%);
+            border: 1px solid #fed7aa;
+        }
+
+        /* ── Highlight underline ── */
+        .hl { position: relative; display: inline; }
+        .hl::after {
+            content: '';
+            position: absolute; bottom: 2px; left: 0; right: 0;
+            height: 8px;
+            background: rgba(20,184,166,0.18);
+            z-index: -1;
+            transform: rotate(-0.5deg);
+        }
+
+        /* ── CTA button ── */
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: #0f172a; color: white;
+            padding: 14px 28px; border-radius: 4px;
+            font-weight: 600; font-size: 11px;
+            text-transform: uppercase; letter-spacing: 0.15em;
+            border: 1px solid #0f172a;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 24px rgba(15,23,42,0.12);
+            cursor: pointer; text-decoration: none;
+        }
+        .btn-primary:hover { background: #1e293b; box-shadow: 0 12px 32px rgba(15,23,42,0.2); }
+
+        .btn-ghost {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: transparent; color: #0f172a;
+            padding: 14px 28px; border-radius: 4px;
+            font-weight: 600; font-size: 11px;
+            text-transform: uppercase; letter-spacing: 0.15em;
+            border: 1px solid rgba(15,23,42,0.15);
+            transition: border-color 0.2s, background 0.2s;
+            cursor: pointer; text-decoration: none;
+        }
+        .btn-ghost:hover { border-color: #0d9488; background: #f0fdfa; }
+
+        /* ── Tag badge ── */
+        .tag-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 6px 14px; border-radius: 9999px;
+            background: #f0fdfa; border: 1px solid #ccfbf1;
+            color: #0f766e; font-size: 10px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.18em;
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* ── Benefit card ── */
+        .benefit-card {
+            background: white; border: 1px solid #e2e8f0; border-radius: 4px;
+            padding: 28px 28px 28px 28px;
+            box-shadow: 0 1px 3px rgba(15,23,42,0.04);
+            transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+        }
+        .benefit-card:hover {
+            border-color: #99f6e4;
+            box-shadow: 0 12px 32px rgba(13,148,136,0.08);
+            transform: translateY(-2px);
+        }
+        .benefit-icon {
+            width: 44px; height: 44px;
+            background: #f0fdfa; border: 1px solid #ccfbf1;
+            border-radius: 4px;
+            display: flex; align-items: center; justify-content: center;
+            color: #0d9488; margin-bottom: 16px;
+        }
+
+        /* ── Testimonial card ── */
+        .testimonial-card {
+            background: white; border: 1px solid #e2e8f0;
+            border-radius: 4px; padding: 28px;
+            height: 100%;
+            box-shadow: 0 2px 8px rgba(15,23,42,0.04);
+        }
+
+        /* ── Accordion ── */
+        .accordion-item { border: 1px solid #e2e8f0; border-radius: 4px; overflow: hidden; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(.4,0,.2,1), padding 0.3s; }
+        .accordion-content.open { max-height: 400px; }
+
+        /* ── Map placeholder ── */
+        .map-placeholder {
+            background: #f1f5f9; border: 1px solid #e2e8f0;
+            border-radius: 4px; overflow: hidden;
+            position: relative;
+        }
+
+        /* ── Navbar ── */
+        #navbar { transition: background 0.3s, box-shadow 0.3s; }
+        #navbar.scrolled { background: rgba(255,255,255,0.95) !important; backdrop-filter: blur(16px); box-shadow: 0 1px 0 rgba(15,23,42,0.06); }
+
+        /* ── Pulse glow ── */
+        .pulse-glow { box-shadow: 0 0 0 0 rgba(20,184,166,0.4); animation: pulse-ring 2s infinite; }
+        @keyframes pulse-ring {
+            0%   { box-shadow: 0 0 0 0 rgba(20,184,166,0.4); }
+            70%  { box-shadow: 0 0 0 10px rgba(20,184,166,0); }
+            100% { box-shadow: 0 0 0 0 rgba(20,184,166,0); }
+        }
+
+        /* ── Section numbering ── */
+        .section-num {
+            font-family: 'Space Mono', monospace;
+            font-size: 10px; font-weight: 700;
+            color: #94a3b8; letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        /* ── Divider line ── */
+        .divider { height: 1px; background: linear-gradient(90deg, transparent, #e2e8f0 30%, #e2e8f0 70%, transparent); }
+
+        /* ── Check list ── */
+        .check-item { display: flex; align-items: flex-start; gap: 10px; }
+        .check-icon { flex-shrink: 0; margin-top: 2px; color: #0d9488; }
+    </style>
+</head>
+<body class="text-slate-900 overflow-x-hidden selection:bg-teal-100 selection:text-teal-900">
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<header id="navbar" class="fixed top-0 w-full z-50 px-6 py-5 lg:px-[6%] flex items-center justify-between bg-white/20 backdrop-blur-md border-b border-slate-900/5">
+    <!-- Logo -->
+    <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded bg-teal-600 flex items-center justify-center">
+            <iconify-icon icon="solar:health-bold" class="text-white text-sm"></iconify-icon>
+        </div>
+        <span class="font-heading font-semibold text-sm text-slate-900 tracking-tight">Dr. Samuell Soares</span>
+    </div>
+
+    <!-- Nav links (desktop) -->
+    <nav class="hidden lg:flex items-center gap-7 text-[11px] uppercase tracking-widest font-semibold text-slate-500">
+        <a href="#tratamento" class="hover:text-teal-600 transition-colors">Tratamento</a>
+        <a href="#sobre" class="hover:text-teal-600 transition-colors">Sobre</a>
+        <a href="#resultados" class="hover:text-teal-600 transition-colors">Resultados</a>
+        <a href="#depoimentos" class="hover:text-teal-600 transition-colors">Depoimentos</a>
+        <a href="#contato" class="hover:text-teal-600 transition-colors">Localização</a>
+    </nav>
+
+    <!-- CTA -->
+    <a href="https://wa.me/5521000000000" target="_blank" class="btn-primary text-[10px] py-3 px-5 hidden sm:inline-flex">
+        <iconify-icon icon="mdi:whatsapp" class="text-emerald-400 text-base"></iconify-icon>
+        Agendar Consulta
+    </a>
+
+    <!-- Mobile menu btn -->
+    <button id="menu-btn" class="lg:hidden w-9 h-9 flex items-center justify-center rounded border border-slate-200 text-slate-500">
+        <iconify-icon icon="solar:hamburger-menu-linear" class="text-xl"></iconify-icon>
+    </button>
+</header>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center gap-6 text-slate-900 text-xl font-heading font-semibold translate-x-full transition-transform duration-300">
+    <button id="menu-close" class="absolute top-5 right-6 text-slate-400 hover:text-slate-900">
+        <iconify-icon icon="solar:close-circle-linear" class="text-2xl"></iconify-icon>
+    </button>
+    <a href="#tratamento" class="mobile-link hover:text-teal-600 transition-colors">Tratamento</a>
+    <a href="#sobre" class="mobile-link hover:text-teal-600 transition-colors">Sobre</a>
+    <a href="#resultados" class="mobile-link hover:text-teal-600 transition-colors">Resultados</a>
+    <a href="#depoimentos" class="mobile-link hover:text-teal-600 transition-colors">Depoimentos</a>
+    <a href="#contato" class="mobile-link hover:text-teal-600 transition-colors">Localização</a>
+    <a href="https://wa.me/5521000000000" target="_blank" class="btn-primary mt-4">
+        <iconify-icon icon="mdi:whatsapp" class="text-emerald-400 text-lg"></iconify-icon>
+        Agendar Consulta
+    </a>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 01 — HERO
+══════════════════════════════════════ -->
+<section class="relative min-h-screen flex items-center pt-28 pb-16 lg:py-0 overflow-hidden bg-grid">
+
+    <!-- Blobs -->
+    <div class="blob bg-teal-100 w-[500px] h-[500px] rounded-full top-[-5%] left-[-8%]"></div>
+    <div class="blob bg-slate-200/70 w-[400px] h-[400px] rounded-full bottom-0 right-[-5%]" style="animation-delay:3s"></div>
+
+    <!-- Grid lines -->
+    <div class="grid-line-left hidden lg:block z-0"></div>
+    <div class="grid-line-mid hidden lg:block z-0">
+        <div class="beam-v" style="top:10%; left:-1px;"></div>
+    </div>
+    <div class="grid-line-right hidden lg:block z-0"></div>
+
+    <div class="relative z-10 w-full max-w-[1600px] mx-auto px-6 lg:px-[6%]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-screen pt-10 lg:pt-0">
+
+            <!-- Text column -->
+            <div class="lg:col-span-6 flex flex-col justify-center lg:pr-12 xl:pr-16">
+
+                <!-- Eyebrow -->
+                <div class="reveal-up flex items-center gap-3 mb-7">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-[11px] font-mono font-bold tracking-[0.2em] text-slate-500 uppercase border border-slate-200 px-3 py-1.5 rounded bg-white/60">
+                        Referência em Recuperação Capilar
+                    </span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="reveal-up font-heading text-[2.6rem] sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-semibold text-slate-900 leading-[1.1] tracking-tight mb-7" style="animation-delay:0.1s">
+                    Você não precisa de transplante capilar para recuperar seus
+                    <span class="text-teal-600 block mt-2 relative">
+                        cabelos!
+                        <svg class="absolute -bottom-1 left-0 w-full" height="6" viewBox="0 0 300 6" fill="none" preserveAspectRatio="none">
+                            <path d="M0 5 Q75 1 150 5 Q225 9 300 5" stroke="#ccfbf1" stroke-width="5" fill="none"/>
+                        </svg>
+                    </span>
+                </h1>
+
+                <!-- Sub -->
+                <p class="reveal-up text-[1.1rem] text-slate-500 leading-relaxed mb-10 border-l-[3px] border-teal-500/30 pl-5 max-w-[520px]" style="animation-delay:0.2s">
+                    A verdade é que você não precisa de bisturi pra ter seu cabelo de volta. Existe um jeito mais seguro, menos invasivo e que funciona de verdade.
+                </p>
+
+                <!-- CTA -->
+                <div class="reveal-up flex flex-col sm:flex-row items-start gap-4" style="animation-delay:0.3s">
+                    <a href="https://wa.me/5521000000000" target="_blank" class="btn-primary">
+                        <iconify-icon icon="mdi:whatsapp" class="text-emerald-400 text-xl"></iconify-icon>
+                        Quero agendar uma consulta
+                        <div class="w-7 h-7 bg-white/10 rounded-full flex items-center justify-center">
+                            <iconify-icon icon="solar:arrow-right-linear" class="text-white text-sm"></iconify-icon>
+                        </div>
+                    </a>
+                    <a href="#tratamento" class="btn-ghost">
+                        Como funciona
+                        <iconify-icon icon="solar:arrow-down-linear" class="text-slate-400 text-sm"></iconify-icon>
+                    </a>
+                </div>
+
+                <!-- Social proof mini bar -->
+                <div class="reveal-up mt-14 pt-8 border-t border-slate-100 flex flex-wrap items-center gap-8 lg:gap-12" style="animation-delay:0.4s">
+                    <div class="flex flex-col gap-1.5">
+                        <div class="flex -space-x-3 mb-1">
+                            <div class="w-9 h-9 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop" class="w-full h-full object-cover" alt="">
+                            </div>
+                            <div class="w-9 h-9 rounded-full border-2 border-white bg-slate-300 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop" class="w-full h-full object-cover" alt="">
+                            </div>
+                            <div class="w-9 h-9 rounded-full border-2 border-white bg-teal-50 flex items-center justify-center text-teal-600 text-[10px] font-bold font-mono">2k+</div>
+                        </div>
+                        <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-semibold">Transformações</span>
+                    </div>
+                    <div class="w-px h-10 bg-slate-200 hidden sm:block"></div>
+                    <div class="flex flex-col gap-1.5">
+                        <div class="flex text-yellow-400 gap-0.5 items-center">
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <span class="text-slate-900 font-bold ml-2 text-sm">5.0</span>
+                        </div>
+                        <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-semibold">Avaliação de Pacientes</span>
+                    </div>
+                    <div class="w-px h-10 bg-slate-200 hidden sm:block"></div>
+                    <div class="flex flex-col gap-1.5">
+                        <span class="font-heading font-bold text-2xl text-slate-900">CRM</span>
+                        <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-semibold">5201192710</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image column -->
+            <div class="lg:col-span-6 relative h-[580px] xl:h-[700px] flex items-center justify-center lg:justify-end reveal-up" style="animation-delay:0.25s">
+                <div class="relative w-full max-w-[460px] xl:max-w-[520px] h-[92%] group">
+
+                    <!-- Markers -->
+                    <div class="marker -top-[2.5px] -left-[2.5px] group-hover:scale-150 transition-transform"></div>
+                    <div class="marker -top-[2.5px] -right-[2.5px] group-hover:scale-150 transition-transform"></div>
+                    <div class="marker -bottom-[2.5px] -left-[2.5px] group-hover:scale-150 transition-transform"></div>
+                    <div class="marker -bottom-[2.5px] -right-[2.5px] group-hover:scale-150 transition-transform"></div>
+
+                    <!-- Top beam -->
+                    <div class="absolute top-[-1px] left-0 right-0 h-[1px] overflow-hidden z-20">
+                        <div class="beam-h" style="background:linear-gradient(90deg,transparent,#0f172a,transparent);animation-delay:1s"></div>
+                    </div>
+
+                    <!-- Offset frame -->
+                    <div class="absolute inset-0 border border-slate-200/80 rounded-t-full rounded-b-sm translate-x-5 translate-y-5 z-0 bg-white/20 group-hover:translate-x-3 group-hover:translate-y-3 transition-transform duration-700"></div>
+
+                    <!-- Main image -->
+                    <div class="relative z-10 w-full h-full rounded-t-full rounded-b-sm overflow-hidden border border-slate-100 shadow-2xl shadow-slate-900/5 bg-slate-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent z-20 pointer-events-none"></div>
+                        <img src="assets/images/MEDICO EDITADO_ 2.png" alt="Dr. Samuell Soares – Dermatologista" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-[1.5s] ease-out relative z-10 brightness-[1.02]">
+                    </div>
+
+                    <!-- Float card 1 -->
+                    <div class="absolute top-[20%] -left-6 lg:-left-14 z-30 glass-card p-4 rounded bg-white/90 flex items-center gap-4 animate-float pr-6 shadow-lg border-l-4 border-l-teal-500">
+                        <div class="w-10 h-10 bg-teal-50 rounded flex items-center justify-center text-teal-600">
+                            <iconify-icon icon="solar:scanner-linear" class="text-xl"></iconify-icon>
+                        </div>
+                        <div>
+                            <span class="block text-[9px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-0.5">Tecnologia</span>
+                            <span class="block font-heading text-sm font-semibold text-slate-900">Mapeamento 3D</span>
+                        </div>
+                    </div>
+
+                    <!-- Float card 2 -->
+                    <div class="absolute bottom-[20%] -right-4 lg:-right-12 z-30 glass-card p-4 rounded bg-white/90 flex items-center gap-4 animate-float-delayed shadow-lg">
+                        <div class="flex items-center justify-center relative w-12 h-12">
+                            <svg class="w-12 h-12 -rotate-90">
+                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2.5" fill="transparent" class="text-slate-100"/>
+                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2.5" fill="transparent" stroke-dasharray="125" stroke-dashoffset="10" class="text-teal-500"/>
+                            </svg>
+                            <span class="absolute font-bold text-[11px] text-slate-900 font-mono">99%</span>
+                        </div>
+                        <div>
+                            <span class="block text-[9px] font-mono font-bold text-slate-400 uppercase tracking-wider mb-0.5">Indicador Clínico</span>
+                            <span class="block font-heading text-sm font-semibold text-slate-900 max-w-[120px] leading-tight">Taxa de Sucesso Folicular</span>
+                        </div>
+                    </div>
+
+                    <!-- Bottom badge -->
+                    <div class="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 bg-white px-5 py-2.5 rounded shadow-xl shadow-slate-900/5 border border-slate-100 flex items-center gap-3 w-max">
+                        <div class="w-5 h-5 rounded-full bg-teal-50 flex items-center justify-center">
+                            <iconify-icon icon="solar:shield-check-bold" class="text-teal-500 text-xs"></iconify-icon>
+                        </div>
+                        <span class="text-[11px] font-semibold tracking-wide uppercase text-slate-700">Sem Cirurgia · Sem Cicatrizes</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 02 — O QUE NINGUÉM TE CONTA
+══════════════════════════════════════ -->
+<section id="tratamento" class="relative bg-white border-t border-slate-100 py-20 sm:py-32 overflow-hidden">
+    <div class="grid-line-left hidden lg:block"></div>
+    <div class="grid-line-mid hidden lg:block"></div>
+    <div class="grid-line-right hidden lg:block"></div>
+
+    <div class="w-full max-w-[1600px] mx-auto px-6 lg:px-[6%] relative z-10">
+        <div class="flex flex-col lg:flex-row items-start gap-16 lg:gap-12">
+
+            <!-- Left sticky col -->
+            <div class="w-full lg:w-1/2 lg:sticky lg:top-32 self-start">
+
+                <div class="reveal-up tag-badge mb-8">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+                    </span>
+                    Alerta Capilar
+                </div>
+
+                <h2 class="reveal-up font-heading text-[2.2rem] sm:text-[2.8rem] lg:text-[3rem] font-semibold text-slate-900 tracking-tight leading-[1.08] mb-6">
+                    O que ninguém te conta sobre
+                    <span class="text-teal-600 block mt-1">perda de cabelo.</span>
+                </h2>
+
+                <p class="reveal-up text-[1.15rem] text-slate-600 font-medium leading-relaxed mb-5">
+                    Você está perdendo tempo (e fios) procurando a <span class="hl">solução errada.</span>
+                </p>
+                <p class="reveal-up text-[1.05rem] text-slate-500 leading-relaxed mb-10">
+                    A queda de cabelo não acontece da noite pro dia. Ela começa silenciosa, progressiva. E quando você percebe, já perdeu densidade, volume, aquela confiança de antes.
+                </p>
+
+                <!-- Bullets 2x2 -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                    <div class="reveal-up group flex flex-col gap-4 p-6 border border-slate-100 rounded-sm bg-white hover:border-teal-200 hover:shadow-lg transition-all duration-300 shadow-sm">
+                        <div class="w-10 h-10 bg-slate-50 border border-slate-100 rounded-sm flex items-center justify-center text-slate-400 group-hover:text-teal-600 group-hover:border-teal-200 group-hover:bg-teal-50 transition-colors">
+                            <iconify-icon icon="solar:clock-circle-linear" class="text-xl"></iconify-icon>
+                        </div>
+                        <p class="text-[13px] text-slate-600 font-medium leading-relaxed">Espera demais para buscar ajuda profissional</p>
+                    </div>
+                    <div class="reveal-up group flex flex-col gap-4 p-6 border border-slate-100 rounded-sm bg-white hover:border-teal-200 hover:shadow-lg transition-all duration-300 shadow-sm" style="animation-delay:.1s">
+                        <div class="w-10 h-10 bg-slate-50 border border-slate-100 rounded-sm flex items-center justify-center text-slate-400 group-hover:text-teal-600 group-hover:border-teal-200 group-hover:bg-teal-50 transition-colors">
+                            <iconify-icon icon="solar:bottle-linear" class="text-xl"></iconify-icon>
+                        </div>
+                        <p class="text-[13px] text-slate-600 font-medium leading-relaxed">Testa shampoos milagrosos que não funcionam</p>
+                    </div>
+                    <div class="reveal-up group flex flex-col gap-4 p-6 border border-slate-100 rounded-sm bg-white hover:border-teal-200 hover:shadow-lg transition-all duration-300 shadow-sm" style="animation-delay:.2s">
+                        <div class="w-10 h-10 bg-slate-50 border border-slate-100 rounded-sm flex items-center justify-center text-slate-400 group-hover:text-teal-600 group-hover:border-teal-200 group-hover:bg-teal-50 transition-colors">
+                            <iconify-icon icon="solar:scissors-square-linear" class="text-xl"></iconify-icon>
+                        </div>
+                        <p class="text-[13px] text-slate-600 font-medium leading-relaxed">Acha que transplante é a única saída</p>
+                    </div>
+                    <div class="reveal-up group flex flex-col gap-4 p-6 border border-slate-100 rounded-sm bg-white hover:border-teal-200 hover:shadow-lg transition-all duration-300 shadow-sm" style="animation-delay:.3s">
+                        <div class="w-10 h-10 bg-slate-50 border border-slate-100 rounded-sm flex items-center justify-center text-slate-400 group-hover:text-teal-600 group-hover:border-teal-200 group-hover:bg-teal-50 transition-colors">
+                            <iconify-icon icon="solar:shield-check-linear" class="text-xl"></iconify-icon>
+                        </div>
+                        <p class="text-[13px] text-slate-600 font-medium leading-relaxed">Não sabe que existem tratamentos clínicos altamente eficazes</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right scroll col -->
+            <div class="w-full lg:w-1/2 flex items-start justify-center lg:justify-end reveal-up relative lg:pb-[50vh]">
+                <div class="relative w-full max-w-[580px] p-6 lg:p-8 bg-white border border-slate-200 rounded shadow-[0_24px_48px_-12px_rgba(15,23,42,0.05)] hover:border-slate-300 transition-colors duration-500 mt-0 lg:mt-32">
+                    <!-- Card header -->
+                    <div class="flex items-start justify-between mb-6 pb-6 border-b border-slate-100">
+                        <div>
+                            <h3 class="text-lg font-semibold tracking-tight text-slate-900 mb-1">Diagnóstico Folicular</h3>
+                            <p class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Análise de Densidade</p>
+                        </div>
+                        <div class="flex items-center gap-4 text-[10px] font-mono font-bold uppercase tracking-widest">
+                            <div class="flex items-center gap-1.5 text-slate-400">
+                                <span class="w-1.5 h-1.5 rounded-full bg-slate-300 border border-slate-400"></span> Progressão
+                            </div>
+                            <div class="flex items-center gap-1.5 text-teal-600">
+                                <span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span> Reversão
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card image -->
+                    <div class="relative w-full aspect-[4/3] rounded bg-slate-50 overflow-hidden border border-slate-100">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent z-10 pointer-events-none"></div>
+                        <div class="absolute inset-0 z-10 pointer-events-none opacity-20" style="background-image:linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px);background-size:40px 40px;"></div>
+                        <img src="assets/images/man-with-baldness-dark-background-head-close-up 2.png" alt="Avaliando perda de cabelo" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700 ease-out relative z-0 grayscale-[0.1]">
+
+                        <!-- Target indicator -->
+                        <div class="absolute top-[35%] left-[45%] w-8 h-8 border-[1.5px] border-teal-400/80 rounded-full z-20 flex items-center justify-center">
+                            <div class="w-1.5 h-1.5 bg-teal-400 rounded-full animate-ping"></div>
+                        </div>
+                        <span class="absolute top-[35%] left-[57%] text-[9px] font-mono text-teal-300 uppercase tracking-widest z-20 font-bold mt-1 drop-shadow-md block">Área Crítica</span>
+
+                        <!-- Bottom float -->
+                        <div class="absolute bottom-4 left-4 right-4 z-20 glass-card p-3 rounded bg-white/95 flex items-center justify-between shadow-lg animate-float-delayed border border-white/60">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-emerald-50 rounded flex items-center justify-center text-emerald-600 shrink-0">
+                                    <iconify-icon icon="solar:chart-square-bold" class="text-xl"></iconify-icon>
+                                </div>
+                                <div>
+                                    <span class="block text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-0.5">Potencial Folicular</span>
+                                    <span class="block font-heading text-sm font-semibold text-slate-900 leading-tight">Alta Capacidade de Reativação</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Good news block -->
+                    <div class="mt-6 p-6 bg-teal-50 border border-teal-100 rounded-sm relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-teal-200/30 rounded-full blur-2xl pointer-events-none"></div>
+                        <p class="text-[10px] font-mono text-teal-600 uppercase tracking-widest font-bold mb-3">E enquanto isso, os folículos continuam morrendo.</p>
+                        <h3 class="font-heading text-lg font-semibold text-teal-800 mb-3">Mas existe uma boa notícia:</h3>
+                        <p class="text-[0.95rem] text-teal-900/80 leading-relaxed">
+                            Quando tratados no momento certo, com as técnicas certas, os folículos capilares podem ser reativados. Seu cabelo pode crescer novamente. <strong class="text-teal-900">Você pode recuperar sua autoestima sem precisar de bisturi.</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 03 — NARRATIVA DR. SAMUELL
+══════════════════════════════════════ -->
+<section class="relative bg-[#FAF9F6] border-t border-slate-200/50 py-20 sm:py-32 overflow-hidden">
+
+    <div class="w-full max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-14 lg:gap-24">
+
+        <!-- Image -->
+        <div class="w-full lg:w-[45%] lg:h-[700px] relative reveal-up">
+            <div class="absolute inset-0 bg-white rounded-[2rem] translate-y-6 -translate-x-6 shadow-sm border border-slate-100 hidden lg:block"></div>
+            <div class="w-full h-full aspect-[4/5] lg:aspect-auto rounded-[2rem] overflow-hidden shadow-2xl relative z-10 border-4 border-white">
+                <div class="absolute inset-0 bg-slate-900/10 z-10 mix-blend-multiply pointer-events-none"></div>
+                <img src="assets/images/MEDICO EDITADO_ 2.png" alt="Dr. Samuell Soares – Dermatologista" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-[2s] ease-out">
+            </div>
+            <!-- Credential badge -->
+            <div class="absolute -bottom-4 lg:bottom-8 left-1/2 lg:left-auto lg:right-[-2rem] -translate-x-1/2 lg:translate-x-0 z-30 bg-white px-5 py-4 rounded shadow-xl shadow-slate-900/8 border border-slate-100 flex items-center gap-4 w-max">
+                <div class="w-10 h-10 bg-teal-50 rounded flex items-center justify-center text-teal-600">
+                    <iconify-icon icon="solar:diploma-bold" class="text-xl"></iconify-icon>
+                </div>
+                <div>
+                    <span class="block text-[10px] font-mono text-slate-400 uppercase tracking-widest mb-0.5">Dermatologista</span>
+                    <span class="block text-sm font-semibold text-slate-900 font-heading">CRM 5201192710</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text -->
+        <div class="w-full lg:w-[55%] flex flex-col items-start text-left reveal-up" style="animation-delay:0.2s">
+
+            <p class="text-[11px] font-mono tracking-[0.15em] text-slate-500 uppercase mb-8 font-semibold flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-500 pulse-glow"></span>
+                Deixa eu te contar uma coisa que acontece aqui toda semana
+            </p>
+
+            <h2 class="text-[1.65rem] sm:text-[2.1rem] lg:text-[2.3rem] font-heading font-semibold text-slate-900 leading-[1.25] tracking-tight mb-6">
+                Sou o Dr. Samuell Soares, dermatologista especializado em tratamentos capilares, e toda semana recebo pacientes que chegam ao consultório convencidos de que só existe um caminho:
+                <span class="italic font-medium text-teal-700"> o transplante capilar.</span>
+            </h2>
+
+            <div class="space-y-5 text-[1.05rem] text-slate-600 leading-relaxed mb-10">
+                <p>
+                    Eles pesquisaram, viram fotos de antes e depois, e mentalizaram que vão precisar passar por um procedimento cirúrgico para voltar a se olhar no espelho com orgulho.
+                </p>
+                <p class="font-medium text-slate-800">
+                    Mas a verdade é outra.
+                </p>
+                <p>
+                    Na maioria dos casos, o transplante não é necessário. E muitas vezes, nem é a melhor opção.
+                </p>
+                <p>
+                    Existe um universo de tratamentos clínicos, baseados em ciência, que regeneram os folículos capilares, estimulam o crescimento e restauram a densidade do cabelo — <span class="text-slate-900 font-medium">tudo isso sem você precisar entrar em um centro cirúrgico.</span>
+                </p>
+            </div>
+
+            <a href="https://wa.me/5521000000000" target="_blank" class="btn-primary">
+                <iconify-icon icon="mdi:whatsapp" class="text-emerald-400 text-xl"></iconify-icon>
+                Quero agendar uma consulta
+                <div class="w-7 h-7 bg-white/10 rounded-full flex items-center justify-center">
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-white text-sm"></iconify-icon>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 04 — POR QUE FAZE MAIS SENTIDO
+══════════════════════════════════════ -->
+<section class="relative bg-white border-t border-slate-100 py-20 sm:py-32 overflow-hidden">
+    <div class="grid-line-left hidden lg:block"></div>
+    <div class="grid-line-right hidden lg:block"></div>
+
+    <div class="w-full max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+
+        <!-- Header -->
+        <div class="flex flex-col items-center text-center mb-16 reveal-up">
+            <div class="tag-badge mb-6">
+                <iconify-icon icon="solar:verified-check-bold" class="text-teal-600 text-sm"></iconify-icon>
+                Por que este caminho
+            </div>
+            <h2 class="font-heading text-[2rem] sm:text-[2.6rem] lg:text-[3rem] font-semibold text-slate-900 tracking-tight leading-[1.1] max-w-3xl">
+                Por que esse caminho faz mais sentido que o transplante
+            </h2>
+        </div>
+
+        <!-- Benefits grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-14">
+
+            <div class="benefit-card reveal-up">
+                <div class="benefit-icon">
+                    <iconify-icon icon="solar:heart-pulse-2-linear" class="text-xl"></iconify-icon>
+                </div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="text-[9px] font-mono font-bold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded">✓ Confirmado</span>
+                </div>
+                <h3 class="font-heading font-semibold text-slate-900 text-lg mb-3">Sem cirurgia, sem cicatrizes</h3>
+                <p class="text-[0.95rem] text-slate-500 leading-relaxed">Você não precisa se afastar do trabalho, não tem cortes, não tem recuperação dolorosa.</p>
+            </div>
+
+            <div class="benefit-card reveal-up" style="animation-delay:.1s">
+                <div class="benefit-icon">
+                    <iconify-icon icon="solar:dna-linear" class="text-xl"></iconify-icon>
+                </div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="text-[9px] font-mono font-bold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded">✓ Confirmado</span>
+                </div>
+                <h3 class="font-heading font-semibold text-slate-900 text-lg mb-3">Trata a causa, não só o sintoma</h3>
+                <p class="text-[0.95rem] text-slate-500 leading-relaxed">O transplante move cabelo de um lugar para outro. Nosso tratamento regenera os folículos existentes.</p>
+            </div>
+
+            <div class="benefit-card reveal-up" style="animation-delay:.2s">
+                <div class="benefit-icon">
+                    <iconify-icon icon="solar:stars-linear" class="text-xl"></iconify-icon>
+                </div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="text-[9px] font-mono font-bold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded">✓ Confirmado</span>
+                </div>
+                <h3 class="font-heading font-semibold text-slate-900 text-lg mb-3">Resultados naturais</h3>
+                <p class="text-[0.95rem] text-slate-500 leading-relaxed">Seus próprios fios crescem mais fortes, mais densos, sem aquele aspecto "transplantado".</p>
+            </div>
+
+            <div class="benefit-card reveal-up" style="animation-delay:.3s">
+                <div class="benefit-icon">
+                    <iconify-icon icon="solar:wallet-money-linear" class="text-xl"></iconify-icon>
+                </div>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="text-[9px] font-mono font-bold text-teal-600 uppercase tracking-widest bg-teal-50 px-2 py-1 rounded">✓ Confirmado</span>
+                </div>
+                <h3 class="font-heading font-semibold text-slate-900 text-lg mb-3">Investimento inteligente</h3>
+                <p class="text-[0.95rem] text-slate-500 leading-relaxed">Custa menos que um transplante e entrega resultados duradouros quando você segue o protocolo.</p>
+            </div>
+        </div>
+
+        <!-- CTA centered -->
+        <div class="flex justify-center reveal-up">
+            <a href="https://wa.me/5521000000000" target="_blank" class="btn-primary">
+                <iconify-icon icon="mdi:whatsapp" class="text-emerald-400 text-xl"></iconify-icon>
+                Quero agendar uma consulta
+                <div class="w-7 h-7 bg-white/10 rounded-full flex items-center justify-center">
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-white text-sm"></iconify-icon>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 05 — DEPOIMENTOS
+══════════════════════════════════════ -->
+<section id="depoimentos" class="relative bg-slate-50 border-t border-slate-100 py-20 sm:py-32 overflow-hidden">
+
+    <div class="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
+
+        <!-- Header -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14 reveal-up">
+            <div>
+                <div class="tag-badge mb-5">
+                    <iconify-icon icon="solar:chat-round-like-bold" class="text-teal-600 text-sm"></iconify-icon>
+                    Depoimentos
+                </div>
+                <h2 class="font-heading text-[2rem] sm:text-[2.6rem] font-semibold text-slate-900 tracking-tight leading-[1.1]">
+                    Quem já fez fala<br class="hidden sm:block"> melhor que eu
+                </h2>
+            </div>
+            <!-- Swiper nav -->
+            <div class="flex items-center gap-3">
+                <button id="swiper-prev" class="w-11 h-11 rounded-sm border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:border-teal-500 hover:text-teal-600 transition-colors shadow-sm">
+                    <iconify-icon icon="solar:arrow-left-linear" class="text-base"></iconify-icon>
+                </button>
+                <button id="swiper-next" class="w-11 h-11 rounded-sm border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:border-teal-500 hover:text-teal-600 transition-colors shadow-sm">
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-base"></iconify-icon>
+                </button>
+            </div>
+        </div>
+
+        <!-- Swiper -->
+        <div class="swiper testimonials-swiper reveal-up" style="animation-delay:.1s">
+            <div class="swiper-wrapper pb-4">
+
+                <!-- Testimonial 1 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="flex text-yellow-400 gap-0.5 mb-4">
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                        </div>
+                        <p class="text-[1rem] text-slate-600 leading-relaxed mb-6 italic">
+                            "Eu já tinha marcado consulta com um cirurgião para o transplante. Por acaso encontrei o Dr. Samuell e resolvi tentar o tratamento clínico antes. Em 4 meses, minha densidade voltou visivelmente. Cancelei a cirurgia e não me arrependo."
+                        </p>
+                        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                            <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-700 font-bold font-heading text-sm">RM</div>
+                            <div>
+                                <span class="block text-sm font-semibold text-slate-900 font-heading">Ricardo M.</span>
+                                <span class="text-[11px] text-slate-400 font-mono">Paciente desde 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="flex text-yellow-400 gap-0.5 mb-4">
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                        </div>
+                        <p class="text-[1rem] text-slate-600 leading-relaxed mb-6 italic">
+                            "Tinha vergonha de sair sem boné. Hoje, seis meses depois do início do tratamento, minha autoestima voltou completamente. O Dr. Samuell é extremamente atencioso e os resultados são reais."
+                        </p>
+                        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                            <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 font-bold font-heading text-sm">FA</div>
+                            <div>
+                                <span class="block text-sm font-semibold text-slate-900 font-heading">Felipe A.</span>
+                                <span class="text-[11px] text-slate-400 font-mono">Paciente desde 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="flex text-yellow-400 gap-0.5 mb-4">
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                        </div>
+                        <p class="text-[1rem] text-slate-600 leading-relaxed mb-6 italic">
+                            "Comecei a perder cabelo aos 28 anos. Minha família toda usava transplante, achei que era inevitável. O tratamento com o Dr. Samuell mudou tudo. Em 3 meses já via diferença. Hoje me olho no espelho com orgulho."
+                        </p>
+                        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                            <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-700 font-bold font-heading text-sm">GC</div>
+                            <div>
+                                <span class="block text-sm font-semibold text-slate-900 font-heading">Gabriel C.</span>
+                                <span class="text-[11px] text-slate-400 font-mono">Paciente desde 2022</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="flex text-yellow-400 gap-0.5 mb-4">
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                        </div>
+                        <p class="text-[1rem] text-slate-600 leading-relaxed mb-6 italic">
+                            "Consultei 3 médicos antes do Dr. Samuell, todos indicaram cirurgia. Ele foi o único que propôs um tratamento progressivo, menos invasivo. O resultado foi incrível e não precisei operar."
+                        </p>
+                        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                            <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-700 font-bold font-heading text-sm">LS</div>
+                            <div>
+                                <span class="block text-sm font-semibold text-slate-900 font-heading">Lucas S.</span>
+                                <span class="text-[11px] text-slate-400 font-mono">Paciente desde 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <div class="flex text-yellow-400 gap-0.5 mb-4">
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                            <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+                        </div>
+                        <p class="text-[1rem] text-slate-600 leading-relaxed mb-6 italic">
+                            "Gastaria 3x mais no transplante e ficaria meses em recuperação. Com o tratamento do Dr. Samuell continuei minha rotina normal e os resultados vieram de forma gradual e natural. Recomendo muito."
+                        </p>
+                        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+                            <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 font-bold font-heading text-sm">BR</div>
+                            <div>
+                                <span class="block text-sm font-semibold text-slate-900 font-heading">Bruno R.</span>
+                                <span class="text-[11px] text-slate-400 font-mono">Paciente desde 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 06 — PARA QUEM É
+══════════════════════════════════════ -->
+<section class="relative bg-white border-t border-slate-100 py-20 sm:py-32 overflow-hidden">
+
+    <div class="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div class="flex flex-col lg:flex-row items-start gap-16">
+
+            <!-- Left -->
+            <div class="w-full lg:w-1/2 reveal-up">
+                <div class="tag-badge mb-6">
+                    <iconify-icon icon="solar:user-check-rounded-bold" class="text-teal-600 text-sm"></iconify-icon>
+                    Indicação
+                </div>
+                <h2 class="font-heading text-[2rem] sm:text-[2.6rem] lg:text-[2.8rem] font-semibold text-slate-900 tracking-tight leading-[1.1] mb-10">
+                    Esse tratamento é pra você?
+                </h2>
+
+                <p class="text-[1.05rem] text-slate-600 leading-relaxed mb-8">
+                    Esse protocolo é indicado para você que:
+                </p>
+
+                <div class="space-y-4">
+                    <div class="check-item">
+                        <div class="check-icon w-6 h-6 bg-teal-50 border border-teal-100 rounded-full flex items-center justify-center shrink-0">
+                            <iconify-icon icon="solar:check-read-linear" class="text-teal-600 text-sm"></iconify-icon>
+                        </div>
+                        <span class="text-[1rem] text-slate-700">Percebeu aumento na queda de cabelo</span>
+                    </div>
+                    <div class="check-item">
+                        <div class="check-icon w-6 h-6 bg-teal-50 border border-teal-100 rounded-full flex items-center justify-center shrink-0">
+                            <iconify-icon icon="solar:check-read-linear" class="text-teal-600 text-sm"></iconify-icon>
+                        </div>
+                        <span class="text-[1rem] text-slate-700">Nota as entradas aumentando ou a coroa ficando mais visível</span>
+                    </div>
+                    <div class="check-item">
+                        <div class="check-icon w-6 h-6 bg-teal-50 border border-teal-100 rounded-full flex items-center justify-center shrink-0">
+                            <iconify-icon icon="solar:check-read-linear" class="text-teal-600 text-sm"></iconify-icon>
+                        </div>
+                        <span class="text-[1rem] text-slate-700">Perdeu densidade e volume nos últimos anos</span>
+                    </div>
+                    <div class="check-item">
+                        <div class="check-icon w-6 h-6 bg-teal-50 border border-teal-100 rounded-full flex items-center justify-center shrink-0">
+                            <iconify-icon icon="solar:check-read-linear" class="text-teal-600 text-sm"></iconify-icon>
+                        </div>
+                        <span class="text-[1rem] text-slate-700">Quer evitar um procedimento cirúrgico</span>
+                    </div>
+                    <div class="check-item">
+                        <div class="check-icon w-6 h-6 bg-teal-50 border border-teal-100 rounded-full flex items-center justify-center shrink-0">
+                            <iconify-icon icon="solar:check-read-linear" class="text-teal-600 text-sm"></iconify-icon>
+                        </div>
+                        <span class="text-[1rem] text-slate-700">Busca um tratamento baseado em ciência, não em promessas vazias</span>
+                    </div>
+                    <div class="check-item">
+                        <div class="check-icon w-6 h-6 bg-teal-50 border border-teal-100 rounded-full flex items-center justify-center shrink-0">
+                            <iconify-icon icon="solar:check-read-linear" class="text-teal-600 text-sm"></iconify-icon>
+                        </div>
+                        <span class="text-[1rem] text-slate-700">Está comprometido em seguir um protocolo por alguns meses</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: warning + urgency -->
+            <div class="w-full lg:w-1/2 reveal-up" style="animation-delay:.2s">
+                <!-- Warning box -->
+                <div class="warning-box rounded p-8 mb-8">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded flex items-center justify-center text-orange-500 shrink-0">
+                            <iconify-icon icon="solar:danger-triangle-bold" class="text-2xl"></iconify-icon>
+                        </div>
+                        <div>
+                            <h3 class="font-heading font-semibold text-orange-900 text-lg mb-3">⚠️ IMPORTANTE</h3>
+                            <p class="text-[0.95rem] text-orange-800/90 leading-relaxed">
+                                Quanto mais cedo você começar, melhores os resultados. <strong>Folículos capilares que morreram completamente não podem ser reativados.</strong> Por isso, não deixe para amanhã.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats panel -->
+                <div class="p-8 bg-slate-900 rounded relative overflow-hidden">
+                    <!-- Decorative beam -->
+                    <div class="absolute top-0 left-0 right-0 h-[1px] overflow-hidden">
+                        <div class="beam-h" style="background:linear-gradient(90deg,transparent,#14b8a6,transparent);"></div>
+                    </div>
+                    <p class="text-[10px] font-mono text-teal-400 uppercase tracking-widest font-bold mb-8">Dados Clínicos</p>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <span class="font-heading font-bold text-4xl text-white">87<span class="text-teal-400">%</span></span>
+                            <p class="text-[11px] text-slate-400 mt-2 font-mono uppercase tracking-wide">dos pacientes evitam cirurgia</p>
+                        </div>
+                        <div>
+                            <span class="font-heading font-bold text-4xl text-white">3–6<span class="text-teal-400 text-2xl ml-1">meses</span></span>
+                            <p class="text-[11px] text-slate-400 mt-2 font-mono uppercase tracking-wide">para primeiros resultados visíveis</p>
+                        </div>
+                        <div>
+                            <span class="font-heading font-bold text-4xl text-white">2k<span class="text-teal-400">+</span></span>
+                            <p class="text-[11px] text-slate-400 mt-2 font-mono uppercase tracking-wide">transformações realizadas</p>
+                        </div>
+                        <div>
+                            <span class="font-heading font-bold text-4xl text-white">5<span class="text-teal-400 text-2xl ml-1">anos</span></span>
+                            <p class="text-[11px] text-slate-400 mt-2 font-mono uppercase tracking-wide">de especialização em tricologia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 07 — RESULTADOS ANTES E DEPOIS
+══════════════════════════════════════ -->
+<section id="resultados" class="relative bg-slate-50 border-t border-slate-100 py-20 sm:py-32 overflow-hidden">
+
+    <div class="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
+
+        <!-- Header -->
+        <div class="flex flex-col items-center text-center mb-14 reveal-up">
+            <div class="tag-badge mb-6">
+                <iconify-icon icon="solar:gallery-bold" class="text-teal-600 text-sm"></iconify-icon>
+                Resultados
+            </div>
+            <h2 class="font-heading text-[2rem] sm:text-[2.6rem] lg:text-[3rem] font-semibold text-slate-900 tracking-tight leading-[1.1] mb-4">
+                Nossos resultados
+            </h2>
+            <p class="text-[1.05rem] text-slate-500 max-w-xl">Deslize o divisor para comparar os resultados reais de nossos pacientes.</p>
+        </div>
+
+        <!-- Before/After Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+
+            <!-- BA Card 1 -->
+            <div class="reveal-up">
+                <div class="before-after-container rounded shadow-lg border border-slate-200 aspect-[3/4] bg-slate-100" id="ba1">
+                    <img src="assets/images/sem cabelo 01.png" alt="Depois" class="w-full h-full object-cover object-top">
+                    <div class="before-layer" id="ba1-before">
+                        <img src="assets/images/man-with-baldness-dark-background-head-close-up 2.png" alt="Antes" class="object-top">
+                    </div>
+                    <div class="before-after-handle" id="ba1-handle">
+                        <div class="before-after-handle-icon">
+                            <iconify-icon icon="solar:arrows-left-right-linear" class="text-teal-600 text-lg"></iconify-icon>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 left-4 text-[10px] font-mono font-bold uppercase tracking-widest text-white bg-slate-900/60 px-2 py-1 rounded z-30">Antes</div>
+                    <div class="absolute top-4 right-4 text-[10px] font-mono font-bold uppercase tracking-widest text-white bg-teal-600/80 px-2 py-1 rounded z-30">Depois</div>
+                </div>
+                <div class="mt-4 flex items-center justify-between px-1">
+                    <div>
+                        <p class="text-sm font-semibold text-slate-900 font-heading">Paciente — 34 anos</p>
+                        <p class="text-[11px] text-slate-400 font-mono mt-0.5">6 meses de tratamento</p>
+                    </div>
+                    <span class="text-[10px] font-mono font-bold text-teal-600 uppercase tracking-widest bg-teal-50 border border-teal-100 px-2 py-1 rounded">+65% densidade</span>
+                </div>
+            </div>
+
+            <!-- BA Card 2 -->
+            <div class="reveal-up" style="animation-delay:.1s">
+                <div class="before-after-container rounded shadow-lg border border-slate-200 aspect-[3/4] bg-slate-100" id="ba2">
+                    <img src="assets/images/sem cabelo 02.png" alt="Depois" class="w-full h-full object-cover object-top">
+                    <div class="before-layer" id="ba2-before">
+                        <img src="assets/images/man-with-baldness-dark-background-head-close-up 2.png" alt="Antes" class="object-top">
+                    </div>
+                    <div class="before-after-handle" id="ba2-handle">
+                        <div class="before-after-handle-icon">
+                            <iconify-icon icon="solar:arrows-left-right-linear" class="text-teal-600 text-lg"></iconify-icon>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 left-4 text-[10px] font-mono font-bold uppercase tracking-widest text-white bg-slate-900/60 px-2 py-1 rounded z-30">Antes</div>
+                    <div class="absolute top-4 right-4 text-[10px] font-mono font-bold uppercase tracking-widest text-white bg-teal-600/80 px-2 py-1 rounded z-30">Depois</div>
+                </div>
+                <div class="mt-4 flex items-center justify-between px-1">
+                    <div>
+                        <p class="text-sm font-semibold text-slate-900 font-heading">Paciente — 41 anos</p>
+                        <p class="text-[11px] text-slate-400 font-mono mt-0.5">4 meses de tratamento</p>
+                    </div>
+                    <span class="text-[10px] font-mono font-bold text-teal-600 uppercase tracking-widest bg-teal-50 border border-teal-100 px-2 py-1 rounded">+48% densidade</span>
+                </div>
+            </div>
+
+            <!-- BA Card 3 -->
+            <div class="reveal-up" style="animation-delay:.2s">
+                <div class="before-after-container rounded shadow-lg border border-slate-200 aspect-[3/4] bg-slate-100" id="ba3">
+                    <img src="assets/images/sem cabelo 03.png" alt="Depois" class="w-full h-full object-cover object-top">
+                    <div class="before-layer" id="ba3-before">
+                        <img src="assets/images/man-with-baldness-dark-background-head-close-up 2.png" alt="Antes" class="object-top">
+                    </div>
+                    <div class="before-after-handle" id="ba3-handle">
+                        <div class="before-after-handle-icon">
+                            <iconify-icon icon="solar:arrows-left-right-linear" class="text-teal-600 text-lg"></iconify-icon>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 left-4 text-[10px] font-mono font-bold uppercase tracking-widest text-white bg-slate-900/60 px-2 py-1 rounded z-30">Antes</div>
+                    <div class="absolute top-4 right-4 text-[10px] font-mono font-bold uppercase tracking-widest text-white bg-teal-600/80 px-2 py-1 rounded z-30">Depois</div>
+                </div>
+                <div class="mt-4 flex items-center justify-between px-1">
+                    <div>
+                        <p class="text-sm font-semibold text-slate-900 font-heading">Paciente — 29 anos</p>
+                        <p class="text-[11px] text-slate-400 font-mono mt-0.5">5 meses de tratamento</p>
+                    </div>
+                    <span class="text-[10px] font-mono font-bold text-teal-600 uppercase tracking-widest bg-teal-50 border border-teal-100 px-2 py-1 rounded">+72% densidade</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="flex justify-center reveal-up">
+            <a href="https://wa.me/5521000000000" target="_blank" class="btn-primary">
+                <iconify-icon icon="mdi:whatsapp" class="text-emerald-400 text-xl"></iconify-icon>
+                Quero agendar uma consulta
+                <div class="w-7 h-7 bg-white/10 rounded-full flex items-center justify-center">
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-white text-sm"></iconify-icon>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 08 — SOBRE O DR. SAMUELL
+══════════════════════════════════════ -->
+<section id="sobre" class="relative bg-white border-t border-slate-100 py-20 sm:py-32 overflow-hidden">
+    <div class="grid-line-left hidden lg:block"></div>
+    <div class="grid-line-right hidden lg:block"></div>
+
+    <!-- Blob -->
+    <div class="blob bg-teal-50/60 w-[600px] h-[600px] rounded-full top-[-10%] right-[-10%]" style="opacity:0.5"></div>
+
+    <div class="w-full max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center gap-14 lg:gap-24">
+
+            <!-- Image column -->
+            <div class="w-full lg:w-[40%] reveal-up">
+                <div class="relative">
+                    <!-- Decorative frame -->
+                    <div class="absolute -bottom-4 -right-4 w-full h-full border border-teal-200 rounded-[2rem] z-0"></div>
+                    <div class="relative z-10 rounded-[2rem] overflow-hidden shadow-xl border-4 border-white aspect-[4/5]">
+                        <img src="assets/images/MEDICO EDITADO_ 2.png" alt="Dr. Samuell Soares" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-[2s]">
+                    </div>
+                    <!-- Floating CRM badge -->
+                    <div class="absolute -bottom-6 left-8 z-30 bg-white border border-slate-100 shadow-xl rounded px-5 py-3 flex items-center gap-3">
+                        <div class="w-9 h-9 bg-slate-900 rounded flex items-center justify-center">
+                            <iconify-icon icon="solar:medical-kit-bold" class="text-teal-400 text-lg"></iconify-icon>
+                        </div>
+                        <div>
+                            <span class="block text-[9px] font-mono text-slate-400 uppercase tracking-widest">Médico Dermatologista</span>
+                            <span class="block font-heading font-semibold text-slate-900 text-sm">CRM 5201192710</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text column -->
+            <div class="w-full lg:w-[60%] reveal-up pt-8 lg:pt-0" style="animation-delay:.2s">
+                <div class="tag-badge mb-7">
+                    <iconify-icon icon="solar:user-bold" class="text-teal-600 text-sm"></iconify-icon>
+                    Sobre o Médico
+                </div>
+                <h2 class="font-heading text-[2rem] sm:text-[2.5rem] lg:text-[2.8rem] font-semibold text-slate-900 tracking-tight leading-[1.1] mb-6">
+                    Dr. Samuell Soares
+                </h2>
+
+                <div class="space-y-5 text-[1.05rem] text-slate-600 leading-relaxed mb-10">
+                    <p>
+                        A pele é o maior órgão do corpo humano e é na sua complexidade que somente um médico especialista consegue atuar para tratar doenças e promover saúde e bem-estar.
+                    </p>
+                    <p>
+                        Meu comprometimento vai além do tratamento médico — busco elevar a autoestima e valorizar a beleza única de cada indivíduo, sem padrões e focado na individualidade de cada um.
+                    </p>
+                    <p>
+                        Formado pelo <strong class="text-slate-900">Instituto de Dermatologia Professor Rubem Azulay</strong> — um dos maiores centros dermatológicos do país — com treinamento em Dermatologia Clínica, Cirúrgica, Estética e Tricologia.
+                    </p>
+                    <p>
+                        Por meio de uma abordagem humanizada e individualizada, me tornei uma referência em Dermatologia de alto padrão. O compromisso na qualidade do meu trabalho se traduz em resultados excepcionais e clientes satisfeitos.
+                    </p>
+                </div>
+
+                <!-- Credentials chips -->
+                <div class="flex flex-wrap gap-3">
+                    <span class="flex items-center gap-2 text-[11px] font-mono font-bold text-slate-700 uppercase tracking-widest bg-slate-50 border border-slate-200 px-3 py-2 rounded">
+                        <iconify-icon icon="solar:diploma-linear" class="text-teal-600 text-sm"></iconify-icon>
+                        Dermatologia Clínica
+                    </span>
+                    <span class="flex items-center gap-2 text-[11px] font-mono font-bold text-slate-700 uppercase tracking-widest bg-slate-50 border border-slate-200 px-3 py-2 rounded">
+                        <iconify-icon icon="solar:heart-pulse-2-linear" class="text-teal-600 text-sm"></iconify-icon>
+                        Dermatologia Cirúrgica
+                    </span>
+                    <span class="flex items-center gap-2 text-[11px] font-mono font-bold text-slate-700 uppercase tracking-widest bg-slate-50 border border-slate-200 px-3 py-2 rounded">
+                        <iconify-icon icon="solar:stars-linear" class="text-teal-600 text-sm"></iconify-icon>
+                        Dermatologia Estética
+                    </span>
+                    <span class="flex items-center gap-2 text-[11px] font-mono font-bold text-slate-700 uppercase tracking-widest bg-teal-50 border border-teal-200 px-3 py-2 rounded">
+                        <iconify-icon icon="solar:scanner-linear" class="text-teal-600 text-sm"></iconify-icon>
+                        Tricologia
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BLOCO 09 — CLÍNICAS / LOCALIZAÇÃO
+══════════════════════════════════════ -->
+<section id="contato" class="relative bg-slate-900 py-20 sm:py-32 overflow-hidden">
+
+    <!-- Decorative beams on dark bg -->
+    <div class="absolute top-0 left-0 right-0 h-[1px] overflow-hidden">
+        <div class="beam-h" style="background:linear-gradient(90deg,transparent,#14b8a6,transparent);animation-duration:8s"></div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-[1px] overflow-hidden">
+        <div class="beam-h" style="background:linear-gradient(90deg,transparent,#14b8a6,transparent);animation-duration:10s;animation-delay:2s"></div>
+    </div>
+    <div class="blob bg-teal-900/50 w-[500px] h-[500px] rounded-full top-[-20%] left-[-10%]" style="opacity:0.3"></div>
+
+    <div class="w-full max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+
+        <!-- Header -->
+        <div class="flex flex-col items-center text-center mb-14 reveal-up">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-900/60 border border-teal-700/50 text-teal-400 text-[10px] font-bold uppercase tracking-widest font-mono mb-6">
+                <iconify-icon icon="solar:map-point-wave-bold" class="text-sm"></iconify-icon>
+                Nossas Clínicas
+            </div>
+            <h2 class="font-heading text-[2rem] sm:text-[2.6rem] lg:text-[3rem] font-semibold text-white tracking-tight leading-[1.1] mb-4">
+                Onde nos encontrar
+            </h2>
+            <p class="text-slate-400 text-[1.05rem] max-w-lg">Consultas presenciais no Rio de Janeiro e em São Paulo. Agende pelo WhatsApp em segundos.</p>
+        </div>
+
+        <!-- Two clinic columns -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+
+            <!-- RJ -->
+            <div class="reveal-up p-6 lg:p-8 rounded border border-slate-700/60 bg-white/5 backdrop-blur-sm hover:border-teal-600/50 transition-colors duration-300">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-teal-600 rounded flex items-center justify-center">
+                        <iconify-icon icon="solar:map-point-bold" class="text-white text-xl"></iconify-icon>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-mono text-teal-400 uppercase tracking-widest font-bold mb-0.5">Clínica</p>
+                        <h3 class="font-heading text-lg font-semibold text-white">📍 Rio de Janeiro — RJ</h3>
+                    </div>
+                </div>
+                <!-- Map embed RJ placeholder -->
+                <div class="map-placeholder w-full h-64 rounded overflow-hidden relative">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.7!2d-43.1729!3d-22.9068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU0JzI0LjUiUyA0M8KwMTAnMjIuNCJX!5e0!3m2!1spt-BR!2sbr!4v1"
+                        width="100%" height="256"
+                        style="border:0; filter:grayscale(30%) contrast(1.05);"
+                        allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Clínica Rio de Janeiro">
+                    </iframe>
+                    <div class="absolute inset-0 pointer-events-none border border-slate-600/40 rounded"></div>
+                </div>
+                <div class="mt-5 flex items-center justify-between">
+                    <div>
+                        <p class="text-slate-300 text-sm font-medium">Endereço a confirmar</p>
+                        <p class="text-slate-500 text-[12px] font-mono mt-1">Rio de Janeiro – RJ</p>
+                    </div>
+                    <a href="https://wa.me/5521000000000" target="_blank" class="btn-ghost text-white border-slate-600 hover:border-teal-500 text-[10px] py-3 px-4">
+                        <iconify-icon icon="mdi:whatsapp" class="text-emerald-400 text-base"></iconify-icon>
+                        Agendar no RJ
+                    </a>
+                </div>
+            </div>
+
+            <!-- SP -->
+            <div class="reveal-up p-6 lg:p-8 rounded border border-slate-700/60 bg-white/5 backdrop-blur-sm hover:border-teal-600/50 transition-colors duration-300" style="animation-delay:.1s">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-teal-600 rounded flex items-center justify-center">
+                        <iconify-icon icon="solar:map-point-bold" class="text-white text-xl"></iconify-icon>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-mono text-teal-400 uppercase tracking-widest font-bold mb-0.5">Clínica</p>
+                        <h3 class="font-heading text-lg font-semibold text-white">📍 São Paulo — SP</h3>
+                    </div>
+                </div>
+                <!-- Map embed SP placeholder -->
+                <div class="map-placeholder w-full h-64 rounded overflow-hidden relative">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.4!2d-46.6565!3d-23.5505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzAxLjgiUyA0NsKwMzknMjMuNCJX!5e0!3m2!1spt-BR!2sbr!4v1"
+                        width="100%" height="256"
+                        style="border:0; filter:grayscale(30%) contrast(1.05);"
+                        allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Clínica São Paulo">
+                    </iframe>
+                    <div class="absolute inset-0 pointer-events-none border border-slate-600/40 rounded"></div>
+                </div>
+                <div class="mt-5 flex items-center justify-between">
+                    <div>
+                        <p class="text-slate-300 text-sm font-medium">Endereço a confirmar</p>
+                        <p class="text-slate-500 text-[12px] font-mono mt-1">São Paulo – SP</p>
+                    </div>
+                    <a href="https://wa.me/5511000000000" target="_blank" class="btn-ghost text-white border-slate-600 hover:border-teal-500 text-[10px] py-3 px-4">
+                        <iconify-icon icon="mdi:whatsapp" class="text-emerald-400 text-base"></iconify-icon>
+                        Agendar em SP
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom CTA strip -->
+        <div class="reveal-up flex flex-col sm:flex-row items-center justify-between gap-6 p-8 rounded border border-teal-800/60 bg-teal-900/30 backdrop-blur-sm">
+            <div>
+                <h3 class="font-heading font-semibold text-white text-xl mb-1">Pronto para transformar seus cabelos?</h3>
+                <p class="text-slate-400 text-[0.95rem]">Agende sua consulta agora e dê o primeiro passo.</p>
+            </div>
+            <a href="https://wa.me/5521000000000" target="_blank" class="btn-primary shrink-0">
+                <iconify-icon icon="mdi:whatsapp" class="text-emerald-400 text-xl"></iconify-icon>
+                Quero agendar uma consulta
+                <div class="w-7 h-7 bg-white/10 rounded-full flex items-center justify-center">
+                    <iconify-icon icon="solar:arrow-right-linear" class="text-white text-sm"></iconify-icon>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="w-full bg-white border-t border-slate-100 py-8 text-center z-10 relative mt-auto block">
+    <p class="text-[10px] sm:text-[11px] font-mono text-slate-400 uppercase tracking-widest leading-relaxed px-4">
+        TODOS OS DIREITOS RESERVADOS <span class="hidden sm:inline-block mx-2 text-slate-300">|</span><br class="block sm:hidden"> DESENVOLVIDO POR : <a href="https://otusmedia.com/" target="_blank" rel="noopener noreferrer" class="text-slate-900 font-bold hover:text-teal-600 transition-colors">OTUS MEDIA</a>
+    </p>
+</footer>
+
+
+<!-- ══════════════════════════════════════
+     WHATSAPP FLOATING BUTTON
+══════════════════════════════════════ -->
+<a href="https://wa.me/5521000000000" target="_blank"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-emerald-500 rounded-full flex items-center justify-center shadow-2xl shadow-emerald-500/40 hover:bg-emerald-600 hover:scale-110 transition-all duration-200 pulse-glow"
+   title="Fale pelo WhatsApp">
+    <iconify-icon icon="mdi:whatsapp" class="text-white text-2xl"></iconify-icon>
+</a>
+
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+    // ── GSAP ScrollTrigger reveals ──────────────────
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.querySelectorAll('.reveal-up').forEach((el) => {
+        gsap.fromTo(el,
+            { opacity: 0, y: 40 },
+            {
+                opacity: 1, y: 0,
+                duration: 0.85,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 88%',
+                    once: true,
+                }
+            }
+        );
+    });
+
+    // ── Navbar scroll effect ────────────────────────
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 60) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // ── Mobile menu ─────────────────────────────────
+    const menuBtn   = document.getElementById('menu-btn');
+    const menuClose = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function openMenu()  { mobileMenu.style.transform = 'translateX(0)'; document.body.style.overflow = 'hidden'; }
+    function closeMenu() { mobileMenu.style.transform = 'translateX(100%)'; document.body.style.overflow = ''; }
+
+    menuBtn.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    mobileLinks.forEach(l => l.addEventListener('click', closeMenu));
+
+    // ── Swiper carousel ─────────────────────────────
+    const swiper = new Swiper('.testimonials-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        navigation: {
+            prevEl: '#swiper-prev',
+            nextEl: '#swiper-next',
+        },
+        breakpoints: {
+            640:  { slidesPerView: 1.2 },
+            768:  { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+        },
+        grabCursor: true,
+    });
+
+    // ── Before/After sliders ─────────────────────────
+    function initBeforeAfter(containerId, beforeId, handleId) {
+        const container = document.getElementById(containerId);
+        const before    = document.getElementById(beforeId);
+        const handle    = document.getElementById(handleId);
+        if (!container || !before || !handle) return;
+
+        let dragging = false;
+
+        function setPosition(clientX) {
+            const rect  = container.getBoundingClientRect();
+            let   pos   = (clientX - rect.left) / rect.width * 100;
+            pos = Math.min(Math.max(pos, 5), 95);
+            before.style.width  = pos + '%';
+            handle.style.left   = pos + '%';
+        }
+
+        handle.addEventListener('mousedown',  (e) => { dragging = true; e.preventDefault(); });
+        handle.addEventListener('touchstart', (e) => { dragging = true; }, { passive: true });
+
+        window.addEventListener('mousemove',  (e) => { if (dragging) setPosition(e.clientX); });
+        window.addEventListener('touchmove',  (e) => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
+        window.addEventListener('mouseup',    ()  => { dragging = false; });
+        window.addEventListener('touchend',   ()  => { dragging = false; });
+    }
+
+    initBeforeAfter('ba1', 'ba1-before', 'ba1-handle');
+    initBeforeAfter('ba2', 'ba2-before', 'ba2-handle');
+    initBeforeAfter('ba3', 'ba3-before', 'ba3-handle');
+
+    // ── Smooth scroll for anchor links ──────────────
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            const target = document.querySelector(anchor.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
