@@ -1,0 +1,427 @@
+diff --git a/index.html b/index.html
+index 143c4f4..6a621d6 100644
+--- a/index.html
++++ b/index.html
+@@ -679,116 +679,149 @@
+                     <div class="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"></div>
+                     <span class="relative z-10 flex items-center gap-3">
+                         Quero agendar uma consulta
+-                        <iconify-icon icon="mdi:whatsapp" class="text-xl"></iconify-icon>
+-                    </span>
+-                </a>
+-            </div>
+-
+-        </div>
+-    </section>
+-    <section id="section-testimonials" class="relative z-10 w-full min-h-screen py-24 sm:py-32 bg-white flex items-center justify-center overflow-hidden">
++                        <iconify-icon icon="mdi:whatsapp" class="    <section id="section-testimonials" class="relative z-10 w-full min-h-screen py-24 sm:py-32 bg-white flex items-center justify-center overflow-hidden">
+         
+-        <div class="w-full max-w-[1400px] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
++        <div class="w-full max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col gap-12 lg:gap-16 items-center">
+             
+-            <!-- Esquerda: Título Principal e Imagem Emocional (Aproximando do layout da mulher da referência) -->
+-            <div class="lg:col-span-5 flex flex-col h-full testimonial-reveal">
++            <!-- Headline Centralizada -->
++            <div class="text-center testimonial-reveal max-w-2xl">
++                <h2 class="text-4xl sm:text-[3rem] lg:text-[3.5rem] font-heading font-semibold text-slate-900 leading-[1.1] tracking-tight">
++                    Quem já fez
++                    <span class="block text-slate-400 font-normal mt-1">fala melhor que eu.</span>
++                </h2>
++            </div>
++
++            <!-- Grid de Cards de Depoimento -->
++            <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 testimonial-reveal" style="animation-delay: 0.2s;">
+                 
+-                <!-- Headline (Semelhante ao topo esquerdo do print) -->
+-                <div class="mb-12">
+-                    <h2 class="text-4xl sm:text-[3rem] lg:text-[3.5rem] font-heading font-semibold text-slate-900 leading-[1.1] tracking-tight">
+-                        Quem já fez
+-                        <span class="block text-slate-300 font-normal mt-1">fala melhor que eu.</span>
+-                    </h2>
++                <!-- Depoimento 1 -->
++                <div class="bg-white p-8 rounded-sm border border-slate-100 hover:border-slate-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full">
++                    <div>
++                        <div class="flex gap-1 text-[#F59E0B] mb-5">
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                        </div>
++                        <p class="text-[0.95rem] font-medium leading-relaxed text-slate-600 mb-8 italic">
++                            "Dr Samuel é excepcional! Em um meio aonde os médicos estão mais preocupados em só fazer procedimentos e não com o paciente, Dr Samuel é fora da curva, ele se preocupa com o paciente, no que é necessário, no bem estar e bons resultados!"
++                        </p>
++                    </div>
++                    <div class="flex items-center gap-4 pt-5 border-t border-slate-50">
++                        <div class="w-10 h-10 rounded-full bg-teal-50 border border-teal-100 text-teal-700 font-bold text-sm flex items-center justify-center">TB</div>
++                        <div class="flex flex-col">
++                            <strong class="font-semibold text-slate-900 text-sm">T. B.</strong>
++                            <span class="text-[0.7rem] text-slate-400 font-mono tracking-wide mt-0.5">Opinião Verificada</span>
++                        </div>
++                    </div>
+                 </div>
+ 
+-                <!-- Imagem de Sorriso/Resultado (Ocupando a base esquerda) -->
+-                <div class="relative w-full aspect-[4/3] sm:aspect-video lg:aspect-[4/5] mt-auto rounded-sm overflow-hidden bg-slate-100 border border-slate-200 group">
+-                    <div class="absolute inset-0 bg-slate-200/50 animate-pulse"></div>
+-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800" alt="Paciente Feliz" class="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-[2s]">
+-                    
+-                    <!-- Overlay Glass (Como o "98% satisfaction" do print) -->
+-                    <div class="absolute bottom-6 right-6 z-20 bg-white/95 backdrop-blur-md p-5 rounded-sm border border-slate-100 shadow-xl min-w-[150px] text-center">
+-                        <span class="block text-3xl font-heading font-bold text-slate-900 mb-1">99%</span>
+-                        <span class="text-[0.65rem] font-mono tracking-widest text-slate-500 uppercase font-semibold">SUCESSO VERIFICADO</span>
++                <!-- Depoimento 2 -->
++                <div class="bg-white p-8 rounded-sm border border-slate-100 hover:border-slate-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full">
++                    <div>
++                        <div class="flex gap-1 text-[#F59E0B] mb-5">
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                        </div>
++                        <p class="text-[0.95rem] font-medium leading-relaxed text-slate-600 mb-8 italic">
++                            "Doutor Samuell realiza um trabalho diferenciado. Além de identificar uma calvice precoce em mim, ainda fez um espetacular trabalho de identificação de uma dermatite no couro cabeludo que eu já tentava entender e tratar há bastante tempo"
++                        </p>
++                    </div>
++                    <div class="flex items-center gap-4 pt-5 border-t border-slate-50">
++                        <div class="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 text-slate-600 font-bold text-sm flex items-center justify-center">B</div>
++                        <div class="flex flex-col">
++                            <strong class="font-semibold text-slate-900 text-sm">Bruno</strong>
++                            <span class="text-[0.7rem] text-slate-400 font-mono tracking-wide mt-0.5">Opinião Verificada</span>
++                        </div>
+                     </div>
+                 </div>
+ 
+-            </div>
+-
+-            <!-- Direita: Grid de Cards de Depoimento -->
+-            <div class="lg:col-span-7 flex flex-col gap-8 h-full testimonial-reveal" style="animation-delay: 0.2s;">
+-                
+-                <!-- Depoimento 1 (Grande) -->
+-                <div class="bg-white p-8 sm:p-10 rounded-sm border border-slate-100 hover:border-slate-300 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-300 flex flex-col justify-between h-auto lg:h-[60%]">
++                <!-- Depoimento 3 -->
++                <div class="bg-white p-8 rounded-sm border border-slate-100 hover:border-slate-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full">
+                     <div>
+-                        <!-- Stars -->
+-                        <div class="flex gap-1.5 text-[#F59E0B] mb-6">
+-                            <iconify-icon icon="solar:star-bold" class="text-xl"></iconify-icon>
+-                            <iconify-icon icon="solar:star-bold" class="text-xl"></iconify-icon>
+-                            <iconify-icon icon="solar:star-bold" class="text-xl"></iconify-icon>
+-                            <iconify-icon icon="solar:star-bold" class="text-xl"></iconify-icon>
+-                            <iconify-icon icon="solar:star-bold" class="text-xl"></iconify-icon>
++                        <div class="flex gap-1 text-[#F59E0B] mb-5">
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
+                         </div>
+-                        
+-                        <p class="text-lg sm:text-[1.35rem] font-medium leading-relaxed text-slate-600 mb-8 italic relative">
+-                            <span class="text-4xl text-slate-200 absolute -top-4 -left-3 font-serif">"</span>
+-                            <span class="relative z-10">O nível de atenção ao detalhe é inexplicável. Eu nunca me senti apressado durante a avaliação, e o Dr. Samuel não só ouviu minhas inseguranças, como traçou um plano exato. Meu cabelo voltou a ganhar volume em poucos meses, sem cirurgia.</span>
++                        <p class="text-[0.95rem] font-medium leading-relaxed text-slate-600 mb-8 italic">
++                            "Excelente profissional e equipe super atenciosa. A eficácia do tratamento para calvície foi notória em poucos meses. Meu namorado já não pode mais ser chamado de calvo"
+                         </p>
+                     </div>
+-
+-                    <div class="flex items-center gap-4 border-t border-slate-100 pt-6">
+-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150" alt="Carlos Eduardo" class="w-12 h-12 rounded-full object-cover">
++                    <div class="flex items-center gap-4 pt-5 border-t border-slate-50">
++                        <div class="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 text-slate-600 font-bold text-sm flex items-center justify-center">YM</div>
+                         <div class="flex flex-col">
+-                            <strong class="font-semibold text-slate-900 text-sm">Carlos E.</strong>
+-                            <span class="text-[0.75rem] text-slate-400 font-mono tracking-wide">Paciente desde 2023</span>
++                            <strong class="font-semibold text-slate-900 text-sm">Y. M.</strong>
++                            <span class="text-[0.7rem] text-slate-400 font-mono tracking-wide mt-0.5">Opinião Verificada</span>
+                         </div>
+                     </div>
+                 </div>
+ 
+-                <!-- Grid de Depoimentos Menores 2 e 3 -->
+-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 h-auto lg:h-[40%]">
+-                    
+-                    <!-- Depoimento 2 -->
+-                    <div class="bg-white p-6 rounded-sm border border-slate-100 hover:border-slate-300 transition-colors flex flex-col justify-between">
+-                        <div>
+-                            <div class="flex gap-1 text-[#F59E0B] mb-4">
+-                                <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+-                                <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+-                                <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+-                                <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+-                                <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+-                            </div>
+-                            <p class="text-sm font-medium leading-relaxed text-slate-600 mb-6">
+-                                "Estrutura impecável. Eu estava com a autoestima destruída e hoje, depois do tratamento clínico, me sinto outra pessoa. Recomendo de olhos fechados."
+-                            </p>
++                <!-- Depoimento 4 -->
++                <div class="bg-white p-8 rounded-sm border border-slate-100 hover:border-slate-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full">
++                    <div>
++                        <div class="flex gap-1 text-[#F59E0B] mb-5">
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
+                         </div>
+-                        <div class="flex items-center gap-3">
+-                            <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-xs uppercase overflow-hidden">
+-                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100" class="w-full h-full object-cover" alt="Mariana Silva">
+-                            </div>
+-                            <h4 class="font-semibold text-slate-900 text-xs">Mariana S.</h4>
++                        <p class="text-[0.95rem] font-medium leading-relaxed text-slate-600 mb-8 italic">
++                            "Fui à segunda consulta com o Dr. Samuell. Ele é um estudioso e conhecedor dos infortúnios da alopecia. O atendimento superou e muito as expectativas."
++                        </p>
++                    </div>
++                    <div class="flex items-center gap-4 pt-5 border-t border-slate-50">
++                        <div class="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 text-slate-600 font-bold text-sm flex items-center justify-center">AG</div>
++                        <div class="flex flex-col">
++                            <strong class="font-semibold text-slate-900 text-sm">A. G.</strong>
++                            <span class="text-[0.7rem] text-slate-400 font-mono tracking-wide mt-0.5">Opinião Verificada</span>
+                         </div>
+                     </div>
++                </div>
+ 
+-                    <!-- Depoimento 3 -->
+-                    <div class="bg-white p-6 rounded-sm border border-slate-100 hover:border-slate-300 transition-colors flex flex-col justify-between">
+-                        <div>
+-                            <div class="flex gap-1 text-[#F59E0B] mb-4">
+-                                <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+-                                <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+-                                <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+-                                <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+-                                <iconify-icon icon="solar:star-bold" class="text-base"></iconify-icon>
+-                            </div>
+-                            <p class="text-sm font-medium leading-relaxed text-slate-600 mb-6">
+-                                "Eu já tinha marcado transplante e desisti após consultar com o Dr. Samuel. Cabelo regenerando em 6 meses com o método dele!"
+-                            </p>
++                <!-- Depoimento 5 -->
++                <div class="bg-white p-8 rounded-sm border border-slate-100 hover:border-slate-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-full">
++                    <div>
++                        <div class="flex gap-1 text-[#F59E0B] mb-5">
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
++                            <iconify-icon icon="solar:star-bold" class="text-lg"></iconify-icon>
+                         </div>
+-                        <div class="flex items-center gap-3">
+-                            <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-xs uppercase overflow-hidden">
+-                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=100" class="w-full h-full object-cover" alt="Roberto Alves">
+-                            </div>
+-                            <h4 class="font-semibold text-slate-900 text-xs">Roberto A.</h4>
++                        <p class="text-[0.95rem] font-medium leading-relaxed text-slate-600 mb-8 italic">
++                            "Dr Samuell é sempre muito atencioso e prestativo. Meu tratamento evoluiu muito depois que comecei a tratar com ele."
++                        </p>
++                    </div>
++                    <div class="flex items-center gap-4 pt-5 border-t border-slate-50">
++                        <div class="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 text-slate-600 font-bold text-sm flex items-center justify-center">AB</div>
++                        <div class="flex flex-col">
++                            <strong class="font-semibold text-slate-900 text-sm">Arthur Borges</strong>
++                            <span class="text-[0.7rem] text-slate-400 font-mono tracking-wide mt-0.5">Opinião Verificada</span>
++                        </div>
++                    </div>
++                </div>
++
++                <!-- Chamada de Sucesso no lugar do 6º Card -->
++                <div class="bg-slate-50/50 p-8 rounded-sm border border-slate-100 flex flex-col items-center justify-center text-center h-full group hover:bg-slate-50 transition-colors">
++                    <div class="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center text-teal-600 mb-4 group-hover:scale-110 transition-transform">
++                        <iconify-icon icon="solar:check-circle-bold" class="text-3xl"></iconify-icon>
++                    </div>
++                    <span class="block text-4xl font-heading font-bold text-slate-900 mb-2">99%</span>
++                    <span class="text-xs font-mono tracking-widest text-slate-500 uppercase font-semibold mb-4">SUCESSO VERIFICADO</span>
++                    <p class="text-[0.85rem] text-slate-400">Entre para o grupo de pacientes que transformaram sua autoestima.</p>
++                </div>
++
++            </div>
++        </div>
++    </section>           </div>
+                         </div>
+                     </div>
+ 
+@@ -1039,6 +1072,120 @@
+                     </div>
+                 </div>
+ 
++                <!-- Resultado 4 -->
++                <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 feature-reveal" style="animation-delay: 0.1s;">
++                    <div class="relative w-full aspect-[4/5] overflow-hidden group select-none slider-container bg-slate-100">
++                        <!-- Imagem Antes -->
++                        <img src="assets/images/1-1.jpeg" alt="Antes" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
++                        
++                        <!-- Imagem Depois -->
++                        <img src="assets/images/1-2.jpeg" alt="Depois" class="after-image absolute inset-0 w-full h-full object-cover pointer-events-none" style="clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);">
++                        
++                        <!-- Slider Input -->
++                        <input type="range" min="0" max="100" value="50" class="before-after-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20 m-0">
++                        
++                        <!-- Slider Handle -->
++                        <div class="slider-handle absolute top-0 bottom-0 left-[50%] w-0.5 bg-white z-10 pointer-events-none -translate-x-1/2 shadow-[0_0_10px_rgba(0,0,0,0.3)]">
++                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center">
++                                <iconify-icon icon="solar:alt-arrow-left-linear" class="text-slate-600 text-sm -mr-1"></iconify-icon>
++                                <iconify-icon icon="solar:alt-arrow-right-linear" class="text-slate-600 text-sm -ml-1"></iconify-icon>
++                            </div>
++                        </div>
++
++                        <!-- Labels -->
++                        <div class="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide text-white z-10 pointer-events-none">Antes</div>
++                        <div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide text-slate-900 z-10 pointer-events-none">Depois</div>
++                    </div>
++                    
++                    <div class="p-6 lg:p-8">
++                        <div class="flex items-center gap-4 mb-4">
++                            <div class="w-12 h-12 bg-slate-200 rounded-full shrink-0 flex items-center justify-center overflow-hidden">
++                                <iconify-icon icon="solar:user-bold" class="text-slate-400 text-2xl"></iconify-icon>
++                            </div>
++                            <h4 class="text-xl font-heading font-bold text-slate-900">Evolução do Fio</h4>
++                        </div>
++                        <p class="text-[1.05rem] text-slate-600 leading-relaxed font-medium">
++                            Resultado visível de fortalecimento e repilação, evidenciando o poder do método clínico personalizado.
++                        </p>
++                    </div>
++                </div>
++
++                <!-- Resultado 5 -->
++                <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 feature-reveal" style="animation-delay: 0.2s;">
++                    <div class="relative w-full aspect-[4/5] overflow-hidden group select-none slider-container bg-slate-100">
++                        <!-- Imagem Antes -->
++                        <img src="assets/images/2-1.jpeg" alt="Antes" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
++                        
++                        <!-- Imagem Depois -->
++                        <img src="assets/images/2-2.jpeg" alt="Depois" class="after-image absolute inset-0 w-full h-full object-cover pointer-events-none" style="clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);">
++                        
++                        <!-- Slider Input -->
++                        <input type="range" min="0" max="100" value="50" class="before-after-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20 m-0">
++                        
++                        <!-- Slider Handle -->
++                        <div class="slider-handle absolute top-0 bottom-0 left-[50%] w-0.5 bg-white z-10 pointer-events-none -translate-x-1/2 shadow-[0_0_10px_rgba(0,0,0,0.3)]">
++                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center">
++                                <iconify-icon icon="solar:alt-arrow-left-linear" class="text-slate-600 text-sm -mr-1"></iconify-icon>
++                                <iconify-icon icon="solar:alt-arrow-right-linear" class="text-slate-600 text-sm -ml-1"></iconify-icon>
++                            </div>
++                        </div>
++
++                        <!-- Labels -->
++                        <div class="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide text-white z-10 pointer-events-none">Antes</div>
++                        <div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide text-slate-900 z-10 pointer-events-none">Depois</div>
++                    </div>
++                    
++                    <div class="p-6 lg:p-8">
++                        <div class="flex items-center gap-4 mb-4">
++                            <div class="w-12 h-12 bg-slate-200 rounded-full shrink-0 flex items-center justify-center overflow-hidden">
++                                <iconify-icon icon="solar:user-bold" class="text-slate-400 text-2xl"></iconify-icon>
++                            </div>
++                            <h4 class="text-xl font-heading font-bold text-slate-900">Revitalização Capilar</h4>
++                        </div>
++                        <p class="text-[1.05rem] text-slate-600 leading-relaxed font-medium">
++                            Diminuição notável das áreas de rarefação, promovendo mais confiança com o ganho de massa.
++                        </p>
++                    </div>
++                </div>
++
++                <!-- Resultado 6 -->
++                <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 feature-reveal" style="animation-delay: 0.3s;">
++                    <div class="relative w-full aspect-[4/5] overflow-hidden group select-none slider-container bg-slate-100">
++                        <!-- Imagem Antes -->
++                        <img src="assets/images/3-1.jpeg" alt="Antes" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
++                        
++                        <!-- Imagem Depois -->
++                        <img src="assets/images/3-2.jpeg" alt="Depois" class="after-image absolute inset-0 w-full h-full object-cover pointer-events-none" style="clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);">
++                        
++                        <!-- Slider Input -->
++                        <input type="range" min="0" max="100" value="50" class="before-after-slider absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20 m-0">
++                        
++                        <!-- Slider Handle -->
++                        <div class="slider-handle absolute top-0 bottom-0 left-[50%] w-0.5 bg-white z-10 pointer-events-none -translate-x-1/2 shadow-[0_0_10px_rgba(0,0,0,0.3)]">
++                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center">
++                                <iconify-icon icon="solar:alt-arrow-left-linear" class="text-slate-600 text-sm -mr-1"></iconify-icon>
++                                <iconify-icon icon="solar:alt-arrow-right-linear" class="text-slate-600 text-sm -ml-1"></iconify-icon>
++                            </div>
++                        </div>
++
++                        <!-- Labels -->
++                        <div class="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide text-white z-10 pointer-events-none">Antes</div>
++                        <div class="absolute top-4 right-4 bg-white/80 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide text-slate-900 z-10 pointer-events-none">Depois</div>
++                    </div>
++                    
++                    <div class="p-6 lg:p-8">
++                        <div class="flex items-center gap-4 mb-4">
++                            <div class="w-12 h-12 bg-slate-200 rounded-full shrink-0 flex items-center justify-center overflow-hidden">
++                                <iconify-icon icon="solar:user-bold" class="text-slate-400 text-2xl"></iconify-icon>
++                            </div>
++                            <h4 class="text-xl font-heading font-bold text-slate-900">Tratamento Contínuo</h4>
++                        </div>
++                        <p class="text-[1.05rem] text-slate-600 leading-relaxed font-medium">
++                            A retomada do crescimento saudável, proporcionando um couro cabeludo coberto e bem denso.
++                        </p>
++                    </div>
++                </div>
++
+             </div>
+ 
+             <!-- Botão CTA -->
+@@ -1138,7 +1285,7 @@
+                     <!-- Mapa Wrap -->
+                     <div class="relative w-full h-[300px] sm:h-[350px] overflow-hidden">
+                         <iframe 
+-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.111817454805!2d-43.2217631238699!3d-22.982928140590403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bd5064f9f7435%3A0xc3f7a1f81d3f932a!2sLeblon%2C%20Rio%20de%20Janeiro%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1710684000000!5m2!1spt-BR!2sbr" 
++                            src="https://maps.google.com/maps?q=Av.%20Ataulfo%20de%20Paiva%20135,%20Leblon,%20Rio%20de%20Janeiro&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                             class="absolute inset-0 w-full h-full grayscale-[0.2] contrast-[1.1] group-hover:grayscale-0 transition-all duration-700 pointer-events-auto border-0" 
+                             allowfullscreen="" 
+                             loading="lazy" 
+@@ -1157,7 +1304,7 @@
+                             </div>
+                             <div>
+                                 <h3 class="text-2xl font-heading font-bold text-slate-900 mb-2">Clínica RJ</h3>
+-                                <p class="text-slate-600 leading-relaxed font-medium">Avenida Delfim Moreira, Edifício Premium<br>Leblon, Rio de Janeiro - RJ</p>
++                                <p class="text-slate-600 leading-relaxed font-medium">Av. Ataulfo de Paiva 135, sala 911<br>Leblon, Rio de Janeiro - 22440-032</p>
+                             </div>
+                         </div>
+ 
+@@ -1167,11 +1314,11 @@
+                             </div>
+                             <div>
+                                 <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-1">Central de Atendimento</h3>
+-                                <p class="text-xl font-heading font-bold text-slate-900">(21) 99999-9999</p>
++                                <p class="text-xl font-heading font-bold text-slate-900">(21) 98217-6115</p>
+                             </div>
+                         </div>
+ 
+-                        <a href="https://maps.google.com" target="_blank" class="w-full py-5 bg-slate-900 text-white rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-teal-600 transition-colors duration-300 group/btn shadow-xl shadow-slate-100">
++                        <a href="https://maps.google.com/maps?q=Av.+Ataulfo+de+Paiva+135,+Leblon,+Rio+de+Janeiro" target="_blank" class="w-full py-5 bg-slate-900 text-white rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-teal-600 transition-colors duration-300 group/btn shadow-xl shadow-slate-100">
+                             Ver no Google Maps
+                             <iconify-icon icon="solar:arrow-right-up-linear" class="text-xl group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform"></iconify-icon>
+                         </a>
+@@ -1183,7 +1330,7 @@
+                     <!-- Mapa Wrap -->
+                     <div class="relative w-full h-[300px] sm:h-[350px] overflow-hidden">
+                         <iframe 
+-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.19736413233!2d-46.662386323853106!3d-23.561349561007886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da56c367%3A0x3640243be12699e1!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1710684000000!5m2!1spt-BR!2sbr" 
++                            src="https://maps.google.com/maps?q=Rua%20Helena,%20218,%20Vila%20Olimpia,%20S%C3%A3o%20Paulo&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                             class="absolute inset-0 w-full h-full grayscale-[0.2] contrast-[1.1] group-hover:grayscale-0 transition-all duration-700 pointer-events-auto border-0" 
+                             allowfullscreen="" 
+                             loading="lazy" 
+@@ -1202,7 +1349,7 @@
+                             </div>
+                             <div>
+                                 <h3 class="text-2xl font-heading font-bold text-slate-900 mb-2">Clínica SP</h3>
+-                                <p class="text-slate-600 leading-relaxed font-medium">Avenida Paulista, Corporate Tower<br>Jardins, São Paulo - SP</p>
++                                <p class="text-slate-600 leading-relaxed font-medium">Rua Helena, nº 218, conjunto 1302<br>Vila Olimpia, São Paulo - 04552-050</p>
+                             </div>
+                         </div>
+ 
+@@ -1212,11 +1359,11 @@
+                             </div>
+                             <div>
+                                 <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-1">Central de Atendimento</h3>
+-                                <p class="text-xl font-heading font-bold text-slate-900">(11) 99999-9999</p>
++                                <p class="text-xl font-heading font-bold text-slate-900">(11) 2776-9717</p>
+                             </div>
+                         </div>
+ 
+-                        <a href="https://maps.google.com" target="_blank" class="w-full py-5 bg-slate-900 text-white rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-teal-600 transition-colors duration-300 group/btn shadow-xl shadow-slate-100">
++                        <a href="https://maps.google.com/maps?q=Rua+Helena,+218,+Vila+Olimpia,+S%C3%A3o+Paulo" target="_blank" class="w-full py-5 bg-slate-900 text-white rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-teal-600 transition-colors duration-300 group/btn shadow-xl shadow-slate-100">
+                             Ver no Google Maps
+                             <iconify-icon icon="solar:arrow-right-up-linear" class="text-xl group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform"></iconify-icon>
+                         </a>
