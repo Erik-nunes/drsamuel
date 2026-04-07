@@ -177,7 +177,7 @@
 
 
     <!-- Seção Hero Principal -->
-    <section class="relative z-10 min-h-screen flex items-center pt-8 pb-16 lg:py-0 w-full max-w-[1600px] mx-auto px-6 lg:px-[6%] overflow-hidden">
+    <section class="relative z-10 min-h-[100svh] lg:min-h-screen flex items-start lg:items-center pt-4 lg:pt-0 pb-16 lg:pb-0 w-full max-w-[1600px] mx-auto px-6 lg:px-[6%] overflow-hidden">
         
         <!-- Linhas Auxiliares de Grid (Baseado no Design System) -->
         <div class="absolute top-0 bottom-0 left-[6%] w-[1px] bg-slate-900/5 hidden lg:block z-0 pointer-events-none"></div>
@@ -186,10 +186,10 @@
         </div>
         <div class="absolute top-0 bottom-0 right-[6%] w-[1px] bg-slate-900/5 hidden lg:block z-0 pointer-events-none"></div>
 
-        <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center h-full relative z-10 pt-2 lg:pt-10">
+        <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center h-full relative z-10 pt-2 lg:pt-10">
             
             <!-- Coluna de Texto (Esquerda) -->
-            <div class="lg:col-span-6 flex flex-col justify-center lg:pr-12 xl:pr-16 relative">
+            <div class="lg:col-span-6 flex flex-col justify-center lg:pr-12 xl:pr-16 relative order-2 lg:order-1">
                 
                 <!-- Eyebrow / Selo Pequeno -->
                 <div class="reveal-up flex items-center gap-3 mb-6">
@@ -221,11 +221,11 @@
                         <div class="w-7 h-7 bg-white/10 rounded-full flex items-center justify-center group-hover/btn:scale-110 transition-transform ml-1">
                             <iconify-icon icon="solar:arrow-right-linear" class="text-white text-sm"></iconify-icon>
                         </div>
-                    </a>>
+                    </a>
                 </div>
 
                 <!-- Indicadores/Mini Bloco com Benefícios -->
-                <div class="reveal-up mt-16 pt-8 border-t border-slate-100 flex flex-wrap items-center gap-8 lg:gap-12">
+                <div class="reveal-up mt-6 pt-5 sm:mt-16 sm:pt-8 border-t border-slate-100 flex flex-wrap items-center gap-8 lg:gap-12">
                     
                     <div class="flex flex-col gap-1">
                         <div class="flex -space-x-3 mb-1">
@@ -255,7 +255,7 @@
             </div>
 
             <!-- Coluna da Imagem e Elementos UI (Direita) -->
-            <div class="lg:col-span-6 relative h-[600px] xl:h-[720px] w-full flex items-center justify-center lg:justify-end mt-12 lg:mt-0 reveal-up" style="animation-delay: 0.25s;">
+            <div class="lg:col-span-6 relative h-[380px] sm:h-[480px] lg:h-[600px] xl:h-[720px] w-full flex items-center justify-center lg:justify-end mt-4 lg:mt-0 reveal-up order-1 lg:order-2" style="animation-delay: 0.25s;">
                 
                 <!-- Container da Imagem Principal -->
                 <div class="relative w-full max-w-[480px] xl:max-w-[540px] h-[90%] xl:h-full group">
@@ -285,7 +285,7 @@
                     <!-- Elementos Auxiliares de UI (Microinterações) -->
 
                     <!-- Float Card 1: Avaliação / Tecnologia -->
-                    <div class="absolute top-[55%] lg:top-[20%] -left-4 sm:-left-6 lg:-left-16 z-30 glass-card p-4 rounded bg-white/90 flex items-center gap-4 animate-float pr-6 shadow-lg shadow-teal-900/5 border-l-4 border-l-teal-500">
+                    <div class="absolute top-[55%] lg:top-[20%] left-0 sm:-left-6 lg:-left-16 z-30 glass-card p-4 rounded bg-white/90 flex items-center gap-4 animate-float pr-6 shadow-lg shadow-teal-900/5 border-l-4 border-l-teal-500 transform scale-[0.75] sm:scale-100 origin-left lg:origin-center">
                         <div class="w-10 h-10 bg-teal-50 rounded flex items-center justify-center text-teal-600">
                             <iconify-icon icon="solar:scanner-linear" class="text-xl"></iconify-icon>
                         </div>
@@ -296,7 +296,7 @@
                     </div>
 
                     <!-- Float Card 2: Sucesso / Taxa -->
-                    <div class="absolute bottom-[18%] -right-4 lg:-right-12 z-30 glass-card p-4 rounded bg-white/90 flex items-center gap-4 animate-float-delayed shadow-lg shadow-slate-900/5">
+                    <div class="absolute bottom-[18%] right-0 sm:-right-4 lg:-right-12 z-30 glass-card p-4 rounded bg-white/90 flex items-center gap-4 animate-float-delayed shadow-lg shadow-slate-900/5 transform scale-[0.75] sm:scale-100 origin-right lg:origin-center">
                         <div class="flex items-center justify-center relative w-12 h-12">
                             <svg class="w-12 h-12 transform -rotate-90">
                                 <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2.5" fill="transparent" class="text-slate-100" />
@@ -311,7 +311,7 @@
                     </div>
 
                     <!-- Badge Fixa Elegante -->
-                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 bg-white text-slate-900 px-5 py-2.5 rounded shadow-xl shadow-slate-900/5 border border-slate-100 flex items-center gap-3 w-max">
+                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 bg-white text-slate-900 px-5 py-2.5 rounded shadow-xl shadow-slate-900/5 border border-slate-100 flex items-center gap-3 w-max transform scale-[0.75] sm:scale-100 origin-bottom lg:origin-center">
                         <div class="w-6 h-6 rounded-full bg-teal-50 flex items-center justify-center">
                             <iconify-icon icon="solar:shield-check-bold" class="text-teal-500 text-sm"></iconify-icon>
                         </div>
@@ -325,7 +325,7 @@
     </section>
 
     <!-- Segunda Dobra: O que ninguém te conta -->
-    <section class="relative z-10 bg-white w-full border-t border-slate-100 pt-16 pb-2 lg:py-32 overflow-hidden">
+    <section class="relative z-10 bg-white w-full border-t border-slate-100 pt-16 pb-2 lg:pt-12 lg:pb-32 overflow-hidden">
         
         <!-- Linhas Auxiliares de Grid (Baseado no Design System) -->
         <div class="absolute top-0 bottom-0 left-[6%] w-[1px] bg-slate-900/5 hidden lg:block z-0 pointer-events-none"></div>
@@ -456,13 +456,13 @@
     </section>
 
     <!-- Terceira Dobra: Animação Parallax (A Boa Notícia) -->
-    <section id="section-parallax" class="relative z-10 w-full min-h-[80vh] lg:min-h-[150vh] bg-slate-50 flex flex-col items-center justify-start overflow-hidden border-t border-slate-100">
+    <section id="section-parallax" class="relative z-10 w-full min-h-0 sm:min-h-[80vh] lg:min-h-screen bg-slate-50 flex flex-col items-center justify-center overflow-hidden border-t border-slate-100 py-10 sm:py-20 lg:py-0">
         
-        <!-- O container "sticky" criado via ScrollTrigger -->
-        <div id="parallax-container" class="relative w-full max-w-[1200px] h-[60vh] lg:h-screen mx-auto px-6 flex items-center justify-center z-10 top-0">
+        <!-- O container -->
+        <div id="parallax-container" class="relative w-full max-w-[1200px] h-[450px] sm:h-[60vh] lg:h-screen mx-auto px-6 flex items-center justify-center z-10 top-0">
             
             <!-- Texto Central -->
-            <div id="parallax-text" class="text-center max-w-2xl relative z-30 opacity-0 transform translate-y-8 pointer-events-none">
+            <div id="parallax-text" class="text-center max-w-2xl relative z-30">
                 <p class="text-[11px] sm:text-[13px] font-mono tracking-widest text-slate-400 uppercase mb-6 sm:mb-8 font-bold drop-shadow-sm">
                     E enquanto isso, os folículos continuam morrendo.
                 </p>
@@ -519,7 +519,7 @@
                 <div class="w-full h-full aspect-[4/5] lg:aspect-auto rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden shadow-2xl relative z-10 border-4 border-white">
                     <!-- Overlay sutil para manter o tom de riqueza fotográfica -->
                     <div class="absolute inset-0 bg-slate-900/10 z-10 pointer-events-none mix-blend-multiply"></div>
-                    <img src="assets/images/samuel novo.png" alt="Dermatologia Capilar Dr. Samuel Soares" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-[2s] ease-out">
+                    <img src="assets/images/WhatsApp Image 2026-04-07 at 11.57.05.jpeg" alt="Dermatologia Capilar Dr. Samuel Soares" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-[2s] ease-out">
                 </div>
             </div>
 
@@ -1463,40 +1463,33 @@
                     const parallaxContainer = document.getElementById('parallax-container');
                     
                     if(parallaxSec && parallaxContainer) {
-                        const parallaxTl = gsap.timeline({
-                            scrollTrigger: {
-                                trigger: parallaxSec,
-                                start: "top top",
-                                end: "+=150%",
-                                scrub: 1,
-                                pin: true,
-                            }
-                        });
-
-                        parallaxTl.to('#parallax-text', { 
-                            opacity: 1, 
-                            y: 0, 
-                            duration: 1, 
-                            ease: "power2.out" 
-                        }, 0);
+                        const parallaxText = document.getElementById('parallax-text');
+                        if (parallaxText) gsap.set(parallaxText, { opacity: 1, y: 0 });
 
                         const imgs = document.querySelectorAll('.parallax-img');
-                        imgs.forEach((img) => {
-                            const isMobile = window.innerWidth < 768;
-                            const multiplier = isMobile ? 0.65 : 1; 
+                        
+                        function setStaticPositions() {
+                            imgs.forEach((img) => {
+                                const isMobile = window.innerWidth < 768;
+                                const multiplierX = isMobile ? 0.45 : 1;
+                                const multiplierY = isMobile ? 1.45 : 1; 
+                                const scaleVal = isMobile ? 0.85 : 1;
 
-                            const tx = parseFloat(img.getAttribute('data-x')) * multiplier + '%';
-                            const ty = parseFloat(img.getAttribute('data-y')) * multiplier + '%';
-                            const r = parseFloat(img.getAttribute('data-rot')) * (isMobile ? 0.5 : 1);
+                                const tx = parseFloat(img.getAttribute('data-x')) * multiplierX + '%';
+                                const ty = parseFloat(img.getAttribute('data-y')) * multiplierY + '%';
+                                const r = parseFloat(img.getAttribute('data-rot')) * (isMobile ? 0.5 : 1);
 
-                            parallaxTl.to(img, {
-                                x: tx,
-                                y: ty,
-                                rotation: r,
-                                duration: 1.5,
-                                ease: "power2.inOut"
-                            }, 0);
-                        });
+                                gsap.set(img, {
+                                    x: tx,
+                                    y: ty,
+                                    rotation: r,
+                                    scale: scaleVal,
+                                });
+                            });
+                        }
+
+                        setStaticPositions();
+                        window.addEventListener('resize', setStaticPositions);
                     }
 
                     // --- ANIMAÇÃO DA QUARTA DOBRA (Narrativa Dr Samuel) ---
